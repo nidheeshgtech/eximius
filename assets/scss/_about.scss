@@ -13,7 +13,7 @@
   &__intro {
     grid-column: 1 / 2;
     display: grid;
-    grid-template-columns: 8.5rem minmax(0, 1fr);
+    grid-template-columns: 14rem minmax(0, 1fr);
     align-items: start;
     padding-top: 0.35rem;
   }
@@ -62,7 +62,17 @@
     font-size: 1rem;
     font-weight: 400;
     letter-spacing: -0.02em;
-    transition: gap 0.28s ease, transform 0.28s ease;
+    // include opacity + filter so revealme transition works; gap for hover
+    transition:
+      opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+      filter 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+      gap 0.28s ease;
+
+    &.is-visible {
+      // after reveal completes, switch to fast hover transitions
+      transition: gap 0.28s ease, transform 0.28s ease;
+    }
 
     &:hover,
     &:focus-visible {

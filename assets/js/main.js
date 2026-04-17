@@ -1,13 +1,151 @@
 // main.js
+
+// ── Lenis smooth scroll ────────────────────────────────────
+const lenis = new Lenis({
+  duration: 1.3,
+  easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+  smoothWheel: true,
+  wheelMultiplier: 1,
+  touchMultiplier: 1.5,
+});
+
+if (typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined') {
+  window.gsap.registerPlugin(window.ScrollTrigger);
+  lenis.on('scroll', window.ScrollTrigger.update);
+  window.gsap.ticker.add(function (time) {
+    lenis.raf(time * 1000);
+  });
+  window.gsap.ticker.lagSmoothing(0);
+} else {
+  function lenisRaf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(lenisRaf);
+  }
+  requestAnimationFrame(lenisRaf);
+}
+
+// ── Page setup ────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
+  const hasGsapScroll = typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined';
   const siteHeader = document.querySelector('.site-header');
   const navToggle = document.querySelector('.site-header__toggle');
   const bannerSlider = document.querySelector('.js-banner-slider');
+  const videoFrame = document.querySelector('.video-showcase');
+  const videoToggle = document.querySelector('.video-showcase__play');
+  const videoToggleLabel = document.querySelector('.video-showcase__play-label');
+  const videoIframe = document.querySelector('.video-showcase__iframe');
+  const bannerImages = document.querySelectorAll('.banner__image');
+  const videoMedia = document.querySelector('.video-showcase__media');
+  const aboutImage = document.querySelector('.about-section__image');
+  const whereBackground = document.querySelector('.where-section__bg');
+  const admissionsBackground = document.querySelector('.admissions-section__bg');
+  const opportunitiesCards = document.querySelectorAll('.opportunities-section__card');
   const revealItems = document.querySelectorAll('.revealme');
   const revealGroups = document.querySelectorAll('.revealme-group');
   const revealTitles = document.querySelectorAll('.reveal-title');
   const revealWords = document.querySelectorAll('.reveal-words');
   const revealTexts = document.querySelectorAll('.reveal-text');
+
+  if (hasGsapScroll && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const { gsap, ScrollTrigger } = window;
+
+    bannerImages.forEach((image) => {
+      gsap.to(image, {
+        yPercent: 8,
+        scale: 1.12,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.banner',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 1.1,
+        },
+      });
+    });
+
+    if (videoMedia) {
+      gsap.fromTo(videoMedia, {
+        yPercent: -4,
+        scale: 1.03,
+      }, {
+        yPercent: 4,
+        scale: 1.08,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.video-showcase',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.15,
+        },
+      });
+    }
+
+    if (aboutImage) {
+      gsap.fromTo(aboutImage, {
+        yPercent: -5,
+      }, {
+        yPercent: 5,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.about-section',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1,
+        },
+      });
+    }
+
+    if (whereBackground) {
+      gsap.fromTo(whereBackground, {
+        yPercent: -16,
+        scale: 1.18,
+      }, {
+        yPercent: 16,
+        scale: 1.28,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.where-section',
+          start: 'top 96%',
+          end: 'bottom 4%',
+          scrub: 2.6,
+        },
+      });
+    }
+
+    if (admissionsBackground) {
+      gsap.fromTo(admissionsBackground, {
+        yPercent: -16,
+        scale: 1.18,
+      }, {
+        yPercent: 16,
+        scale: 1.28,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.admissions-section',
+          start: 'top 96%',
+          end: 'bottom 4%',
+          scrub: 2.6,
+        },
+      });
+    }
+
+    if (opportunitiesCards.length) {
+      gsap.from(opportunitiesCards, {
+        y: 28,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out',
+        stagger: 0.08,
+        scrollTrigger: {
+          trigger: '.opportunities-section__grid',
+          start: 'top 78%',
+          once: true,
+        },
+      });
+    }
+
+    ScrollTrigger.refresh();
+  }
 
   revealTitles.forEach((title) => {
     const text = (title.textContent || '').trim();
@@ -85,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 767.98) {
+      if (window.innerWidth > 1199.98) {
         siteHeader.classList.remove('is-open');
         navToggle.setAttribute('aria-expanded', 'false');
         navToggle.setAttribute('aria-label', 'Open navigation menu');
@@ -108,6 +246,44 @@ document.addEventListener('DOMContentLoaded', () => {
       fadeEffect: {
         crossFade: true,
       },
+    });
+  }
+
+  if (videoFrame && videoToggle && videoToggleLabel && videoIframe) {
+    let isVideoPlaying = true;
+    const vimeoOrigin = 'https://player.vimeo.com';
+
+    const setVideoButtonState = (playing) => {
+      isVideoPlaying = playing;
+      videoFrame.classList.toggle('is-paused', !playing);
+      videoToggle.setAttribute('aria-pressed', String(playing));
+      videoToggle.setAttribute('aria-label', playing ? 'Pause video' : 'Play video');
+      videoToggleLabel.textContent = playing ? 'Pause video' : 'Play video';
+    };
+
+    const sendVimeoCommand = (method) => {
+      if (!videoIframe.contentWindow) {
+        return;
+      }
+
+      videoIframe.contentWindow.postMessage(
+        JSON.stringify({
+          method,
+        }),
+        vimeoOrigin
+      );
+    };
+
+    setVideoButtonState(true);
+
+    videoToggle.addEventListener('click', () => {
+      if (isVideoPlaying) {
+        sendVimeoCommand('pause');
+        setVideoButtonState(false);
+      } else {
+        sendVimeoCommand('play');
+        setVideoButtonState(true);
+      }
     });
   }
 

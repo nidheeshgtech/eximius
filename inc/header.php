@@ -1,6 +1,5 @@
 <?php
 $assetPrefix = $assetPrefix ?? '';
-require_once __DIR__ . '/components.php';
 $navItems = [
   ['label' => 'Home', 'href' => '#'],
   ['label' => 'About', 'href' => '#'],
@@ -41,13 +40,15 @@ $navItems = [
         <?php endforeach; ?>
       </ul>
 
-      <?php render_arrow_cta([
-        'href' => '#',
-        'label' => 'Contact Us',
-        'class' => 'site-header__cta',
-        'icon_class' => 'site-header__cta-icon',
-        'label_class' => 'site-header__cta-label',
-      ]); ?>
+      <a class="ui-arrow-cta site-header__cta" href="#">
+        <span class="ui-arrow-cta__icon site-header__cta-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 12H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
+            <path d="M12 7L17 12L12 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
+          </svg>
+        </span>
+        <span class="ui-arrow-cta__label site-header__cta-label">Contact Us</span>
+      </a>
     </nav>
   </div>
 </header>

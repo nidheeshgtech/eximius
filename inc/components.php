@@ -14,7 +14,7 @@ if (!function_exists('render_arrow_cta')) {
     $iconClass = trim('ui-arrow-cta__icon ' . ($options['icon_class'] ?? ''));
     $labelClass = trim('ui-arrow-cta__label ' . ($options['label_class'] ?? ''));
     ?>
-    <a class="revealme <?= htmlspecialchars($class, ENT_QUOTES, 'UTF-8'); ?>"
+    <a class="<?= htmlspecialchars($class, ENT_QUOTES, 'UTF-8'); ?>"
       href="<?= htmlspecialchars($href, ENT_QUOTES, 'UTF-8'); ?>">
       <span class="<?= htmlspecialchars($iconClass, ENT_QUOTES, 'UTF-8'); ?>" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -11,6 +11,8 @@
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
+    // container class provides max-width + horizontal padding;
+    // flex is declared here to override Bootstrap's display:block on .container
   }
 
   &__brand {
@@ -170,26 +172,9 @@
       align-items: center;
     }
 
-    &__nav {
-      gap: 1.25rem;
-    }
-
-    &__menu {
-      flex-wrap: wrap;
-      gap: 0.25rem 0.5rem;
-    }
-  }
-
-  @media (max-width: 767.98px) {
-    padding: 1.5rem 0 0;
-
-    &__inner {
-      position: relative;
-    }
-
     &__brand,
     &__logo {
-      width: min(210px, 58vw);
+      width: min(220px, 36vw);
     }
 
     &__toggle {
@@ -260,6 +245,43 @@
     &__cta-icon {
       width: 42px;
       height: 42px;
+    }
+  }
+
+  @media (max-width: 991.98px) {
+    &__brand,
+    &__logo {
+      width: min(210px, 42vw);
+    }
+
+    &__nav {
+      padding: 6.5rem 2rem 2rem;
+    }
+
+    &__menu {
+      margin-top: 0.5rem;
+    }
+
+    &__link {
+      font-size: clamp(1.125rem, 2.6vw, 1.45rem);
+      padding: 0.95rem 0;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    padding: 1.5rem 0 0;
+
+    &__inner {
+      position: relative;
+    }
+
+    &__brand,
+    &__logo {
+      width: min(210px, 58vw);
+    }
+
+    &__nav {
+      padding: 7rem 1.5rem 2rem;
     }
   }
 }

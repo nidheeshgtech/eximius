@@ -16,13 +16,13 @@
     rel="stylesheet" />
 
 
-  <link rel="stylesheet" href="node_modules/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="assets/vendor/css/lenis.css" />
+  <link rel="stylesheet" href="assets/vendor/css/swiper-bundle.min.css" />
   <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 
 <body>
 
-  <?php require_once __DIR__ . '/inc/components.php'; ?>
   <?php include __DIR__ . '/inc/header.php'; ?>
 
   <main id="main-content">
@@ -63,12 +63,15 @@
                 acumen.</p>
             </div>
 
-            <?php render_arrow_cta([
-              'href' => '#',
-              'label' => 'Explore',
-              'class' => 'banner__cta',
-              'icon_class' => 'banner__cta-icon',
-            ]); ?>
+            <a class="ui-arrow-cta banner__cta" href="#">
+              <span class="ui-arrow-cta__icon banner__cta-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7 12H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
+                  <path d="M12 7L17 12L12 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
+                </svg>
+              </span>
+              <span class="ui-arrow-cta__label">Explore</span>
+            </a>
           </div>
         </div>
       </div>
@@ -79,16 +82,16 @@
         <div class="video-showcase__frame revealme">
           <div class="video-showcase__media">
             <iframe class="video-showcase__iframe"
-              src="https://player.vimeo.com/video/76979871?background=1&autoplay=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0"
-              title="Eximius background video" loading="lazy" allow="autoplay; fullscreen; picture-in-picture"
+              src="https://player.vimeo.com/video/721495169?background=1&autoplay=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0&api=1&player_id=eximius-video"
+              id="eximius-video" title="Eximius background video" loading="lazy"
+              allow="autoplay; fullscreen; picture-in-picture"
               referrerpolicy="strict-origin-when-cross-origin"></iframe>
           </div>
 
           <div class="video-showcase__overlay"></div>
 
           <div class="video-showcase__content">
-            <a class="video-showcase__play" href="https://vimeo.com/637401234" target="_blank"
-              rel="noopener noreferrer">
+            <button class="video-showcase__play" type="button" aria-pressed="true" aria-label="Pause video">
               <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="48" height="48" fill="#FF5722" />
                 <mask id="mask0_2456_181" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="12" y="12" width="24"
@@ -102,8 +105,8 @@
                 </g>
               </svg>
 
-              <span class="video-showcase__play-label reveal-words">Play videos</span>
-            </a>
+              <span class="video-showcase__play-label">Pause video</span>
+            </button>
           </div>
         </div>
       </div>
@@ -129,12 +132,15 @@
               design thinking, and soft
               and business skills, as well as mentoring, networking, and cultural excursions.</p>
 
-            <?php render_arrow_cta([
-              'href' => '#',
-              'label' => 'Learn more',
-              'class' => 'about-section__cta',
-              'icon_class' => 'about-section__cta-icon revealme',
-            ]); ?>
+            <a class="ui-arrow-cta about-section__cta revealme" href="#">
+              <span class="ui-arrow-cta__icon about-section__cta-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7 12H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
+                  <path d="M12 7L17 12L12 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
+                </svg>
+              </span>
+              <span class="ui-arrow-cta__label">Learn more</span>
+            </a>
           </div>
 
           <div class="about-section__media revealme">
@@ -157,12 +163,15 @@
           <div class="where-section__intro revealme">
             <h2 class="where-section__title reveal-title" id="where-title">Where is EXIMIUS?</h2>
 
-            <?php render_arrow_cta([
-              'href' => '#',
-              'label' => 'Learn more',
-              'class' => 'where-section__cta',
-              'icon_class' => 'where-section__cta-icon',
-            ]); ?>
+            <a class="ui-arrow-cta where-section__cta" href="#">
+              <span class="ui-arrow-cta__icon where-section__cta-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7 12H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
+                  <path d="M12 7L17 12L12 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
+                </svg>
+              </span>
+              <span class="ui-arrow-cta__label">Learn more</span>
+            </a>
           </div>
 
           <div class="where-section__body revealme-group">
@@ -232,12 +241,15 @@
           </article>
 
           <div class="opportunities-section__cta-wrap revealme">
-            <?php render_arrow_cta([
-              'href' => '#',
-              'label' => 'Learn more',
-              'class' => 'opportunities-section__cta',
-              'icon_class' => 'opportunities-section__cta-icon',
-            ]); ?>
+            <a class="ui-arrow-cta opportunities-section__cta" href="#">
+              <span class="ui-arrow-cta__icon opportunities-section__cta-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7 12H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
+                  <path d="M12 7L17 12L12 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
+                </svg>
+              </span>
+              <span class="ui-arrow-cta__label">Learn more</span>
+            </a>
           </div>
         </div>
       </div>
@@ -263,12 +275,15 @@
                 </div>
               </div>
 
-              <?php render_arrow_cta([
-                'href' => '#',
-                'label' => 'Apply Now',
-                'class' => 'admissions-section__cta',
-                'icon_class' => 'admissions-section__cta-icon ',
-              ]); ?>
+              <a class="ui-arrow-cta admissions-section__cta" href="#">
+                <span class="ui-arrow-cta__icon admissions-section__cta-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 12H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
+                    <path d="M12 7L17 12L12 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
+                  </svg>
+                </span>
+                <span class="ui-arrow-cta__label">Apply Now</span>
+              </a>
             </div>
           </div>
         </div>
@@ -289,12 +304,15 @@
               </div>
             </div>
 
-            <?php render_arrow_cta([
-              'href' => '#',
-              'label' => 'Contact Us',
-              'class' => 'contact-section__cta',
-              'icon_class' => 'contact-section__cta-icon',
-            ]); ?>
+            <a class="ui-arrow-cta contact-section__cta" href="#">
+              <span class="ui-arrow-cta__icon contact-section__cta-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7 12H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
+                  <path d="M12 7L17 12L12 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
+                </svg>
+              </span>
+              <span class="ui-arrow-cta__label">Contact Us</span>
+            </a>
           </div>
         </div>
       </div>
@@ -401,8 +419,11 @@
     </div>
   </footer>
 
-  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="node_modules/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <script src="assets/vendor/js/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/js/lenis.min.js"></script>
   <script src="assets/js/main.js" defer></script>
 </body>
 
