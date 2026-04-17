@@ -1,0 +1,167 @@
+.admissions-section {
+  padding: 2rem 0 2rem;
+  background: #f8f8f6;
+
+  &__frame {
+    position: relative;
+    min-height: 51rem;
+    overflow: hidden;
+    background: #151f26;
+  }
+
+  &__bg,
+  &__overlay,
+  &__content {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__bg {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  &__overlay {
+    background: linear-gradient(180deg, rgba(21, 31, 38, 0) 0%, #151f26 100%);
+  }
+
+  &__content {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 2rem 2rem;
+  }
+
+  &__divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.36);
+    margin-bottom: 2rem;
+  }
+
+  &__grid {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  &__intro {
+    display: flex;
+    align-items: flex-start;
+    gap: 10rem;
+  }
+
+  &__eyebrow {
+    margin: 0;
+    color: $primary;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    padding-top: 0.5rem;
+    white-space: nowrap;
+  }
+
+  &__copy {
+    color: #f8f8f6;
+
+    p {
+      margin: 1.5rem 0 0;
+      max-width: 28.75rem;
+      color: rgba(248, 248, 246, 0.9);
+      font-size: 1.25rem;
+      line-height: 1.4;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    color: #f8f8f6;
+    font-weight: 500;
+  }
+
+  &__cta {
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 400;
+    align-self: center;
+    margin-top: auto;
+
+    &:hover,
+    &:focus-visible {
+      color: #ffffff;
+    }
+  }
+
+  &__cta-icon {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  @media (max-width: 1199.98px) {
+    &__frame {
+      min-height: 42rem;
+    }
+
+    &__content {
+      padding: 0 1.5rem 1.5rem;
+    }
+
+    &__grid,
+    &__intro {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    &__copy {
+      p {
+        max-width: 32rem;
+        font-size: 1.125rem;
+      }
+    }
+
+    &__cta {
+      align-self: flex-start;
+      margin-top: 0;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    padding: 1.5rem 0 2rem;
+
+    &__frame {
+      min-height: 30rem;
+    }
+
+    &__content {
+      padding: 0 1rem 1rem;
+    }
+
+    &__divider {
+      margin-bottom: 1.5rem;
+    }
+
+    &__eyebrow {
+      padding-top: 0;
+    }
+
+    &__copy {
+      p {
+        margin-top: 1rem;
+        font-size: 1rem;
+      }
+    }
+
+    &__cta {
+      font-size: 1rem;
+    }
+
+    &__cta-icon {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+  }
+}

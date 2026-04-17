@@ -1,0 +1,21 @@
+// 1. Project variables — must come before Bootstrap so !default values are overridden
+@import 'variables';
+
+// 2. Bootstrap
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+// 3. Project partials
+@import 'base';
+@import 'components';
+@import 'header';
+@import 'typography';
+
+// 4. Sections
+@import 'banner';
+@import 'video-showcase';
+@import 'about';
+@import 'where';
+@import 'opportunities';
+@import 'admissions';
+@import 'contact';
+@import 'footer';

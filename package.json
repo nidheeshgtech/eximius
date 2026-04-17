@@ -1,0 +1,20 @@
+{
+  "name": "eximius",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass:build": "sass assets/scss/main.scss assets/css/main.css --no-source-map --silence-deprecation=import --silence-deprecation=if-function --silence-deprecation=global-builtin --silence-deprecation=color-functions",
+    "sass:watch": "sass --watch assets/scss/main.scss assets/css/main.css --no-source-map --silence-deprecation=import --silence-deprecation=if-function --silence-deprecation=global-builtin --silence-deprecation=color-functions",
+    "sass:build:min": "sass assets/scss/main.scss assets/css/main.min.css --style=compressed --no-source-map --silence-deprecation=import --silence-deprecation=if-function --silence-deprecation=global-builtin --silence-deprecation=color-functions"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "sass": "^1.99.0",
+    "swiper": "^12.1.3"
+  }
+}

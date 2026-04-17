@@ -1,0 +1,20 @@
+// ============================================================
+// Brand / Project Variables
+// Defined before Bootstrap so !default values are overridden
+// ============================================================
+
+// Colors
+$primary: #FF5722;
+$gray-dark: #444B52;
+
+// Bootstrap overrides
+$body-color: $gray-dark;
+$body-bg: black;
+$link-color: $primary;
+$font-family-sans-serif: 'DM Sans', system-ui, -apple-system, sans-serif;
+$font-family-base: $font-family-sans-serif;
+$grid-gutter-width: 2rem;
+
+$theme-colors: (
+  "primary": $primary,
+);

@@ -1,0 +1,157 @@
+.where-section {
+  position: relative;
+  min-height: 62.5rem;
+  overflow: hidden;
+  background: #151f26;
+  color: #ffffff;
+
+  &__bg,
+  &__overlay {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__bg {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  &__overlay {
+    background:
+      linear-gradient(180deg, rgba(21, 31, 38, 0.1) 0%, #151f26 82.867%),
+      linear-gradient(180deg, rgba(18, 18, 18, 0.16) 0%, rgba(18, 18, 18, 0.16) 100%);
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 62.5rem;
+    padding-top: 35.75rem;
+    padding-bottom: 2rem;
+  }
+
+  &__divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.42);
+    margin-bottom: 2rem;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 24rem) minmax(0, 47.5rem);
+    justify-content: space-between;
+    align-items: start;
+    gap: clamp(2rem, 4vw, 4rem);
+  }
+
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 22.75rem;
+  }
+
+  &__title {
+    margin: 0;
+    color: #ffffff;
+    max-width: 8ch;
+    line-height: 0.95;
+    font-weight: 500;
+  }
+
+  &__body {
+    color: rgba(255, 255, 255, 0.9);
+
+    p {
+      margin: 0 0 1.2rem;
+      font-size: 1.125rem;
+      line-height: 1.3;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__cta {
+    color: #ffffff;
+    font-size: 1.125rem;
+    font-weight: 400;
+
+    &:hover,
+    &:focus-visible {
+      color: #ffffff;
+    }
+  }
+
+  &__cta-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    box-shadow: 0 14px 28px rgba(255, 87, 34, 0.2);
+  }
+
+  @media (max-width: 1199.98px) {
+    min-height: 54rem;
+
+    &__content {
+      min-height: 54rem;
+      padding-top: 26rem;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__intro {
+      min-height: auto;
+      gap: 1.5rem;
+    }
+
+    &__title {
+      max-width: none;
+    }
+
+    &__body {
+      max-width: 52rem;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    min-height: 42rem;
+
+    &__content {
+      min-height: 42rem;
+      padding-top: 18rem;
+      padding-bottom: 1.5rem;
+    }
+
+    &__divider {
+      margin-bottom: 1.5rem;
+    }
+
+    &__grid {
+      gap: 1.5rem;
+    }
+
+    &__body {
+      p {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+    }
+
+    &__cta {
+      font-size: 1rem;
+    }
+
+    &__cta-icon {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+  }
+}

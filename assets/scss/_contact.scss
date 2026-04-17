@@ -1,0 +1,118 @@
+.contact-section {
+  padding: 2rem 0 1.125rem;
+  background: #f8f8f6;
+
+  &__panel {
+    background: $primary;
+    padding: 2rem;
+  }
+
+  &__grid {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  &__intro {
+    display: flex;
+    align-items: flex-start;
+    gap: 19.5rem;
+  }
+
+  &__eyebrow {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    padding-top: 0.35rem;
+  }
+
+  &__copy {
+    color: #ffffff;
+
+    p {
+      margin: 1.5rem 0 0;
+      max-width: 27.625rem;
+      color: rgba(255, 255, 255, 0.94);
+      line-height: 1.2;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    max-width: 41.375rem;
+    color: #ffffff;
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+  }
+
+  &__cta {
+    color: #ffffff;
+    font-size: 1.125rem;
+    font-weight: 400;
+    align-self: flex-start;
+    white-space: nowrap;
+
+    &:hover,
+    &:focus-visible {
+      color: #ffffff;
+    }
+  }
+
+  &__cta-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    background: #ffffff;
+    color: $primary;
+  }
+
+  @media (max-width: 1199.98px) {
+
+    &__grid,
+    &__intro {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    &__copy {
+      p {
+        max-width: 32rem;
+        font-size: 1.125rem;
+      }
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    padding: 1.5rem 0 2rem;
+
+    &__panel {
+      padding: 1.25rem;
+    }
+
+    &__title {
+      font-size: clamp(1.9rem, 8vw, 2.8rem);
+    }
+
+    &__copy {
+      p {
+        margin-top: 1rem;
+        font-size: 1rem;
+        line-height: 1.4;
+      }
+    }
+
+    &__cta {
+      font-size: 1rem;
+    }
+
+    &__cta-icon {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+  }
+}
