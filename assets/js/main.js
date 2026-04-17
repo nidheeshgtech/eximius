@@ -82,15 +82,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (aboutImage) {
       gsap.fromTo(aboutImage, {
-        yPercent: -5,
+        yPercent: -16,
+        scale: 1.18,
       }, {
-        yPercent: 5,
+        yPercent: 16,
+        scale: 1.28,
         ease: 'none',
         scrollTrigger: {
           trigger: '.about-section',
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1,
+          start: 'top 96%',
+          end: 'bottom 4%',
+          scrub: 2.6,
         },
       });
     }

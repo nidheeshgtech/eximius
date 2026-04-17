@@ -12088,6 +12088,7 @@ p {
   grid-column: 2/3;
   grid-row: 1/span 2;
   align-self: start;
+  overflow: hidden;
 }
 .about-section__image {
   width: 100%;
