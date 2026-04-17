@@ -1,12 +1,10 @@
 {
   "version": 2,
   "functions": {
-    "index.php": {
-      "runtime": "vercel-php@0.7.2"
+    "*.php": {
+      "runtime": "vercel-php@0.6.2"
     }
   },
-  "buildCommand": "npm install && npm run sass:build:min && mkdir -p assets/vendor/js assets/vendor/css && cp node_modules/bootstrap/dist/js/bootstrap.bundle.min.js assets/vendor/js/ && cp node_modules/swiper/swiper-bundle.min.css assets/vendor/css/ && cp node_modules/swiper/swiper-bundle.min.js assets/vendor/js/ && cp node_modules/lenis/dist/lenis.css assets/vendor/css/ && cp node_modules/lenis/dist/lenis.min.js assets/vendor/js/",
-  "outputDirectory": ".",
   "routes": [
     { "handle": "filesystem" },
     { "src": "/(.*)", "dest": "/index.php" }
