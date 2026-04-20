@@ -35,6 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const videoToggleLabel = document.querySelector('.video-showcase__play-label');
   const videoIframe = document.querySelector('.video-showcase__iframe');
   const bannerImages = document.querySelectorAll('.banner__image');
+  const aboutPageHeroImage = document.querySelector('.about-hero__image');
+  const leadershipImages = document.querySelectorAll('.leadership-card__media img');
+  const accordionRoots = document.querySelectorAll('[data-accordion]');
+  const partnerStack = document.querySelector('[data-partner-stack]');
+  const partnerCards = document.querySelectorAll('.partner-card');
   const videoMedia = document.querySelector('.video-showcase__media');
   const aboutImage = document.querySelector('.about-section__image');
   const whereBackground = document.querySelector('.where-section__bg');
@@ -62,6 +67,20 @@ document.addEventListener('DOMContentLoaded', () => {
         },
       });
     });
+
+    if (aboutPageHeroImage) {
+      gsap.to(aboutPageHeroImage, {
+        yPercent: 8,
+        scale: 1.14,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.about-hero',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 1.1,
+        },
+      });
+    }
 
     if (videoMedia) {
       gsap.fromTo(videoMedia, {
@@ -236,10 +255,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (bannerSlider && typeof Swiper !== 'undefined') {
     new Swiper(bannerSlider, {
       effect: 'fade',
-      loop: false,
-      speed: 1200,
+      loop: true,
+      speed: 1000,
       allowTouchMove: true,
       grabCursor: true,
+      preloadImages: true,
+      updateOnImagesReady: true,
+      watchSlidesProgress: true,
       autoplay: {
         delay: 3000,
         disableOnInteraction: false,
@@ -286,6 +308,185 @@ document.addEventListener('DOMContentLoaded', () => {
         sendVimeoCommand('play');
         setVideoButtonState(true);
       }
+    });
+
+    videoFrame.addEventListener('mouseleave', () => {
+      videoToggle.blur();
+    });
+  }
+
+  if (accordionRoots.length) {
+    accordionRoots.forEach((accordion) => {
+      const items = accordion.querySelectorAll('.journey-phase');
+
+      const animatePanel = (panel, open) => {
+        if (!panel) {
+          return;
+        }
+
+        if (open) {
+          panel.style.display = 'block';
+          const content = panel.querySelector('.journey-phase__content');
+          const targetHeight = content ? content.getBoundingClientRect().height : panel.scrollHeight;
+          panel.style.height = '0px';
+          panel.style.opacity = '0';
+          requestAnimationFrame(() => {
+            panel.style.height = `${targetHeight}px`;
+            panel.style.opacity = '1';
+          });
+        } else {
+          const content = panel.querySelector('.journey-phase__content');
+          const targetHeight = content ? content.getBoundingClientRect().height : panel.scrollHeight;
+          const currentHeight = panel.getBoundingClientRect().height || targetHeight;
+          panel.style.height = `${currentHeight}px`;
+          panel.style.opacity = '1';
+          panel.getBoundingClientRect();
+          requestAnimationFrame(() => {
+            panel.style.height = '0px';
+            panel.style.opacity = '0';
+          });
+        }
+      };
+
+      const setItemState = (item, open, immediate = false) => {
+        const toggle = item.querySelector('.journey-phase__toggle');
+        const panel = item.querySelector('.journey-phase__panel');
+
+        item.classList.toggle('is-open', open);
+        toggle?.setAttribute('aria-expanded', String(open));
+
+        if (panel) {
+          if (immediate) {
+            panel.style.display = open ? 'block' : 'none';
+            panel.style.height = open ? 'auto' : '0px';
+            panel.style.opacity = open ? '1' : '0';
+          } else {
+            animatePanel(panel, open);
+          }
+        }
+      };
+
+      items.forEach((item) => {
+        const panel = item.querySelector('.journey-phase__panel');
+
+        if (panel) {
+          panel.addEventListener('transitionend', (event) => {
+            if (event.propertyName !== 'height') {
+              return;
+            }
+
+            if (item.classList.contains('is-open')) {
+              panel.style.height = 'auto';
+              panel.style.opacity = '1';
+              panel.style.display = 'block';
+            } else {
+              panel.style.display = 'none';
+              panel.style.height = '0px';
+              panel.style.opacity = '0';
+            }
+          });
+        }
+      });
+
+      items.forEach((item) => {
+        setItemState(item, item.classList.contains('is-open'), true);
+      });
+
+      items.forEach((item) => {
+        const toggle = item.querySelector('.journey-phase__toggle');
+
+        toggle?.addEventListener('click', () => {
+          const isOpen = item.classList.contains('is-open');
+
+          items.forEach((phase) => {
+            if (phase !== item && phase.classList.contains('is-open')) {
+              setItemState(phase, false);
+            }
+          });
+
+          setItemState(item, !isOpen);
+        });
+      });
+    });
+  }
+
+  if (partnerCards.length) {
+    partnerCards.forEach((card) => {
+      const toggle = card.querySelector('.partner-card__toggle');
+      const panel = card.querySelector('.partner-card__panel');
+      const body = card.querySelector('.partner-card__body');
+
+      const setPartnerState = (target, open, immediate = false) => {
+        const targetPanel = target.querySelector('.partner-card__panel');
+        const targetBody = target.querySelector('.partner-card__body');
+        const targetToggle = target.querySelector('.partner-card__toggle');
+
+        if (!targetPanel || !targetBody) {
+          return;
+        }
+
+        target.classList.toggle('is-open', open);
+        targetToggle?.setAttribute('aria-expanded', String(open));
+
+        if (immediate) {
+          targetPanel.style.display = open ? 'block' : 'none';
+          targetPanel.style.height = open ? 'auto' : '0px';
+          targetPanel.style.opacity = open ? '1' : '0';
+          return;
+        }
+
+        if (open) {
+          targetPanel.style.display = 'block';
+          const targetHeight = targetBody.getBoundingClientRect().height;
+          targetPanel.style.height = '0px';
+          targetPanel.style.opacity = '0';
+          requestAnimationFrame(() => {
+            targetPanel.style.height = `${targetHeight}px`;
+            targetPanel.style.opacity = '1';
+          });
+        } else {
+          const currentHeight = targetPanel.getBoundingClientRect().height || targetBody.getBoundingClientRect().height;
+          targetPanel.style.height = `${currentHeight}px`;
+          targetPanel.style.opacity = '1';
+          targetPanel.getBoundingClientRect();
+          requestAnimationFrame(() => {
+            targetPanel.style.height = '0px';
+            targetPanel.style.opacity = '0';
+          });
+        }
+      };
+
+      if (panel) {
+        panel.addEventListener('transitionend', (event) => {
+          if (event.propertyName !== 'height') {
+            return;
+          }
+
+          if (card.classList.contains('is-open')) {
+            panel.style.height = 'auto';
+            panel.style.opacity = '1';
+            panel.style.display = 'block';
+          } else {
+            panel.style.display = 'none';
+            panel.style.height = '0px';
+            panel.style.opacity = '0';
+          }
+        });
+      }
+
+      setPartnerState(card, card.classList.contains('is-open'), true);
+
+      toggle?.addEventListener('click', () => {
+        const isOpen = card.classList.contains('is-open');
+
+        partnerCards.forEach((item) => {
+          if (item !== card && item.classList.contains('is-open')) {
+            setPartnerState(item, false);
+          }
+        });
+
+        setPartnerState(card, !isOpen);
+      });
     });
   }
 

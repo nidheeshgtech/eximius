@@ -15,6 +15,8 @@
     href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
     rel="stylesheet" />
 
+  <link rel="preload" as="image" href="assets/images/ex_banner_01.webp" />
+  <link rel="preload" as="image" href="assets/images/ex_banner_02.webp" />
 
   <link rel="stylesheet" href="assets/vendor/css/lenis.css" />
   <link rel="stylesheet" href="assets/vendor/css/swiper-bundle.min.css" />
@@ -28,6 +30,8 @@
   <main id="main-content">
     <section class="banner" aria-label="Eximius Fellowship banner">
       <div class="banner__slider swiper js-banner-slider">
+
+
         <div class="swiper-wrapper">
           <div class="swiper-slide banner__slide">
             <div class="banner__image" style="background-image: url('assets/images/ex_banner_01.webp');"
@@ -38,6 +42,8 @@
               aria-hidden="true"></div>
           </div>
         </div>
+
+
       </div>
 
       <div class="banner__overlay"></div>
@@ -63,7 +69,7 @@
                 acumen.</p>
             </div>
 
-            <a class="ui-arrow-cta banner__cta" href="#">
+            <a class="ui-arrow-cta banner__cta revealme" href="#">
               <span class="ui-arrow-cta__icon banner__cta-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7 12H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
@@ -162,16 +168,6 @@
         <div class="where-section__grid">
           <div class="where-section__intro revealme">
             <h2 class="where-section__title reveal-title" id="where-title">Where is EXIMIUS?</h2>
-
-            <a class="ui-arrow-cta where-section__cta" href="#">
-              <span class="ui-arrow-cta__icon where-section__cta-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7 12H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
-                  <path d="M12 7L17 12L12 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
-                </svg>
-              </span>
-              <span class="ui-arrow-cta__label">Learn more</span>
-            </a>
           </div>
 
           <div class="where-section__body revealme-group">
@@ -189,6 +185,16 @@
               Cyber Technologies, EDGE Commercial, Technology &amp; Innovation, Research &amp; Development, and Homeland
               Security.</p>
           </div>
+
+          <a class="ui-arrow-cta where-section__cta revealme" href="#">
+            <span class="ui-arrow-cta__icon where-section__cta-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 12H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
+                <path d="M12 7L17 12L12 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
+              </svg>
+            </span>
+            <span class="ui-arrow-cta__label">Learn more</span>
+          </a>
         </div>
       </div>
     </section>
@@ -204,9 +210,8 @@
 
           <div class="opportunities-section__intro revealme">
             <p class="reveal-words">EXIMIUS Fellows benefit from the broad fields represented by EDGE Group clusters.
-              These clusters provide
-              EXIMIUS with complex technical challenges, mentors, and domain expertise, ensuring Fellows are immersed in
-              real-world, mission-critical environments.</p>
+              These clusters provide EXIMIUS with complex technical challenges, mentors, and domain expertise, ensuring
+              Fellows are immersed in real-world, mission-critical environments.</p>
           </div>
         </div>
 
@@ -256,13 +261,13 @@
     </section>
 
     <section class="admissions-section" aria-labelledby="admissions-title">
-      <div class="container">
-        <div class="admissions-section__frame revealme">
-          <div class="admissions-section__bg" style="background-image: url('assets/images/students-discussing.webp');"
-            aria-hidden="true"></div>
-          <div class="admissions-section__overlay" aria-hidden="true"></div>
+      <div class="admissions-section__frame revealme">
+        <div class="admissions-section__bg" style="background-image: url('assets/images/students-discussing.webp');"
+          aria-hidden="true"></div>
+        <div class="admissions-section__overlay" aria-hidden="true"></div>
 
-          <div class="admissions-section__content">
+        <div class="admissions-section__content">
+          <div class="container">
             <div class="admissions-section__divider" aria-hidden="true"></div>
 
             <div class="admissions-section__grid">
@@ -275,7 +280,7 @@
                 </div>
               </div>
 
-              <a class="ui-arrow-cta admissions-section__cta" href="#">
+              <a class="ui-arrow-cta admissions-section__cta revealme" href="#">
                 <span class="ui-arrow-cta__icon admissions-section__cta-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 12H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />

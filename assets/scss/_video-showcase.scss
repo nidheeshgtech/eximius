@@ -1,5 +1,5 @@
 .video-showcase {
-  padding: 20px 0;
+  padding: 1.875rem 0;
   background: #f8f8f6;
 
   &__frame {
@@ -52,6 +52,7 @@
     display: grid;
     place-items: center;
     padding: 2rem;
+    pointer-events: none;
   }
 
   &__play {
@@ -63,7 +64,12 @@
     color: #ffffff;
     background: transparent;
     border: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(12px) scale(0.96);
     transition:
+      visibility 0.32s ease,
       transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
       opacity 0.32s ease;
 
@@ -111,17 +117,36 @@
     font-size: clamp(1rem, 2vw, 1.25rem);
     font-weight: 400;
     line-height: 1.1;
-    letter-spacing: -0.02em;
     text-wrap: balance;
     text-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
   }
 
+  &__frame:hover &__play {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+  }
+
+  @media (hover: none) {
+    &__content {
+      pointer-events: auto;
+    }
+
+    &__play {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+  }
+
   @media (max-width: 767.98px) {
-    padding: 1rem 0 2rem;
+    padding: 1rem 0 1rem;
 
     &__frame {
       min-height: clamp(18rem, 62vw, 28rem);
-      border-radius: 1.25rem;
+      border-radius: 0px;
     }
 
     &__content {
@@ -144,8 +169,7 @@
     }
 
     &__play-label {
-      font-size: clamp(1.4rem, 7vw, 2.2rem);
+      font-size: 1rem;
     }
   }
 }
-

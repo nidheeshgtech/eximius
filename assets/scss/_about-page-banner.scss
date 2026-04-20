@@ -1,0 +1,109 @@
+.about-hero {
+  position: relative;
+  min-height: min(50rem, 100svh);
+  overflow: hidden;
+  background: #151f26;
+  color: #ffffff;
+
+  &__media,
+  &__overlay,
+  &__content {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__media {
+    overflow: hidden;
+  }
+
+  &__image {
+    position: absolute;
+    inset: 0;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    transform: scale(1.08);
+    will-change: transform;
+  }
+
+  &__overlay {
+    background:
+      linear-gradient(180deg, rgba(21, 31, 38, 0.16) 0%, rgba(21, 31, 38, 0.8) 100%),
+      linear-gradient(90deg, rgba(21, 31, 38, 0.2) 0%, rgba(21, 31, 38, 0.04) 42%, rgba(21, 31, 38, 0) 100%);
+  }
+
+  &__content {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: clamp(8rem, 10vw, 9.5rem);
+    padding-bottom: clamp(2.5rem, 3vw, 4rem);
+  }
+
+  &__spacer {
+    min-height: clamp(15rem, 28vw, 21rem);
+  }
+
+  &__copy {
+    max-width: 40rem;
+  }
+
+  &__title {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(3rem, 8vw, 9rem);
+    font-weight: 400;
+    line-height: 0.9;
+    // letter-spacing: -0.04em;
+    text-transform: uppercase;
+    max-width: 6.2ch;
+  }
+
+  &__divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.4);
+    margin-top: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  @media (max-width: 1199.98px) {
+    min-height: 44rem;
+
+    &__spacer {
+      min-height: clamp(14rem, 25vw, 18rem);
+    }
+
+    &__title {
+      max-width: 6.5ch;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    min-height: 36rem;
+
+    &__content {
+      padding-top: 7rem;
+      padding-bottom: 1.5rem;
+    }
+
+    &__spacer {
+      min-height: 13rem;
+    }
+
+    &__image {
+      background-position: 58% top;
+      transform: scale(1.12);
+    }
+
+    &__title {
+      font-size: clamp(2.65rem, 12vw, 4.8rem);
+      line-height: 0.92;
+      max-width: 6.2ch;
+    }
+
+    &__divider {
+      margin-top: 1.75rem;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 .admissions-section {
-  padding: 2rem 0 2rem;
+  padding: 0px;
   background: #f8f8f6;
 
   &__frame {
@@ -31,7 +31,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 0 2rem 2rem;
+    padding: 0 0 2rem;
   }
 
   &__divider {
@@ -60,7 +60,6 @@
     font-size: 1rem;
     font-weight: 500;
     line-height: 1.2;
-    letter-spacing: -0.02em;
     padding-top: 0.5rem;
     white-space: nowrap;
   }
@@ -107,7 +106,7 @@
     }
 
     &__content {
-      padding: 0 1.5rem 1.5rem;
+      padding: 0 0 1.5rem;
     }
 
     &__grid,
@@ -130,14 +129,14 @@
   }
 
   @media (max-width: 767.98px) {
-    padding: 1.5rem 0 2rem;
+    padding: 0rem 0 0rem;
 
     &__frame {
       min-height: 30rem;
     }
 
     &__content {
-      padding: 0 1rem 1rem;
+      padding: 0 0 1rem;
     }
 
     &__divider {

@@ -1,0 +1,172 @@
+.learning-partners {
+  padding: 4rem 0 4.5rem;
+  background: #f8f8f6;
+
+  &__layout {
+    display: grid;
+    grid-template-columns: 18rem minmax(0, 1fr);
+    gap: 3rem;
+    align-items: start;
+  }
+
+  &__eyebrow {
+    margin: 0;
+    color: $primary;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  &__stack {
+    position: relative;
+  }
+
+  @media (max-width: 991.98px) {
+    &__layout {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    padding: 3rem 0 3.5rem;
+  }
+}
+
+.partner-card {
+  position: relative;
+  top: 0;
+  border: 1px solid #d9d9d9;
+  background: #f8f8f6;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(68, 75, 82, 0.04);
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &.is-open {
+    .partner-card__panel {
+      opacity: 1;
+    }
+  }
+
+  &__toggle {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.875rem 1.875rem 1.5rem;
+    border: 0;
+    background: transparent;
+    text-align: left;
+  }
+
+  &__brand {
+    display: inline-flex;
+    align-items: center;
+    min-height: 3rem;
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      max-height: 4rem;
+    }
+  }
+
+  &__brand--capadev img {
+    max-height: 3rem;
+  }
+
+  &__brand--bon img {
+    max-height: 3rem;
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.875rem;
+    color: #444b52;
+    white-space: nowrap;
+  }
+
+  &__cta-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    background: $primary;
+    color: #ffffff;
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+
+    svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+  }
+
+  &__cta-label {
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+
+  &.is-open &__cta-icon svg {
+    transform: rotate(90deg);
+  }
+
+  &__panel {
+    display: none;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: height 0.65s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
+  }
+
+  &__body {
+    padding: 0 1.875rem 1.5rem;
+
+    p {
+      margin: 0 0 1rem;
+      color: #444b52;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  @media (max-width: 991.98px) {
+    margin-top: 0;
+    box-shadow: none;
+
+    &+& {
+      margin-top: 1rem;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    &__toggle {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1.25rem;
+      gap: 1rem;
+    }
+
+    &__cta {
+      gap: 0.75rem;
+    }
+
+    &__cta-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    &__body {
+      padding: 0 1.25rem 1.25rem;
+    }
+  }
+}

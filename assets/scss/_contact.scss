@@ -1,5 +1,5 @@
 .contact-section {
-  padding: 2rem 0 1.125rem;
+  padding: 1.875rem 0;
   background: #f8f8f6;
 
   &__panel {
@@ -26,7 +26,6 @@
     font-size: 1rem;
     font-weight: 500;
     line-height: 1.2;
-    letter-spacing: -0.02em;
     white-space: nowrap;
     padding-top: 0.35rem;
   }
@@ -48,7 +47,6 @@
     color: #ffffff;
     font-weight: 400;
     line-height: 1.05;
-    letter-spacing: -0.04em;
   }
 
   &__cta {
@@ -88,7 +86,7 @@
   }
 
   @media (max-width: 767.98px) {
-    padding: 1.5rem 0 2rem;
+    padding: 1rem 0 1rem;
 
     &__panel {
       padding: 1.25rem;

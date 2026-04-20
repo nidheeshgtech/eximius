@@ -47,7 +47,6 @@
     font-size: clamp(1.5rem, 2vw, 2rem);
     font-weight: 500;
     line-height: 1;
-    letter-spacing: -0.03em;
   }
 
   &__form {
@@ -91,7 +90,6 @@
     color: #ffffff;
     font-size: clamp(1rem, 1vw, 1.25rem);
     font-weight: 500;
-    letter-spacing: -0.02em;
     white-space: nowrap;
     transition: background-color 0.28s ease, transform 0.28s ease, box-shadow 0.28s ease;
 
@@ -147,7 +145,6 @@
     font-size: 1.25rem;
     font-weight: 600;
     line-height: 1;
-    letter-spacing: -0.02em;
     text-transform: uppercase;
   }
 
@@ -167,7 +164,6 @@
       font-size: clamp(0.95rem, 1vw, 1.25rem);
       font-weight: 400;
       line-height: 1.2;
-      letter-spacing: -0.02em;
       text-decoration: none;
       transition: color 0.28s ease, transform 0.28s ease;
 
@@ -192,7 +188,6 @@
     font-style: normal;
     font-size: clamp(0.95rem, 0.95vw, 1.125rem);
     line-height: 1.35;
-    letter-spacing: -0.01em;
   }
 
   &__contact-list {
@@ -209,7 +204,6 @@
     color: #ffffff;
     font-size: clamp(1rem, 1vw, 1.25rem);
     line-height: 1.2;
-    letter-spacing: -0.02em;
     text-decoration: none;
     transition: color 0.28s ease, transform 0.28s ease;
 
@@ -245,7 +239,6 @@
       color: rgba(255, 255, 255, 0.8);
       font-size: 0.875rem;
       line-height: 1.3;
-      letter-spacing: -0.01em;
     }
   }
 
@@ -277,6 +270,19 @@
     &__top,
     &__middle {
       gap: 1.5rem;
+    }
+
+    &__top {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__subscribe {
+      order: 1;
+    }
+
+    &__brand {
+      order: 2;
     }
 
     &__subscribe {

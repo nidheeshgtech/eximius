@@ -19,7 +19,6 @@ h1,
   font-size: fluid(48, 140);
   font-weight: 700;
   line-height: 1.05;
-  letter-spacing: -0.02em;
 }
 
 h2,
@@ -27,7 +26,6 @@ h2,
   font-size: fluid(32, 80);
   font-weight: 700;
   line-height: 1.1;
-  letter-spacing: -0.015em;
 }
 
 h3,
@@ -60,6 +58,9 @@ h6,
 
 p {
   font-size: 1.125rem;
-  line-height: 1.6;
-  letter-spacing: -0.01em;
+  line-height: 1.5;
+
+  @media (max-width: 991.98px) {
+    font-size: 1rem;
+  }
 }
