@@ -11739,14 +11739,20 @@ p {
   background: #151f26;
   color: #ffffff;
 }
-.banner__slider, .banner__slide {
+.banner__slider {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
 }
 .banner__slide {
-  overflow: hidden;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+}
+.banner__slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
 }
 .banner__image {
   position: absolute;
@@ -11761,12 +11767,6 @@ p {
   z-index: 1;
   background: linear-gradient(180deg, rgba(21, 31, 38, 0.18) 0%, rgba(21, 31, 38, 0.65) 70%), linear-gradient(90deg, rgba(21, 31, 38, 0.1) 0%, rgba(21, 31, 38, 0) 48%);
   pointer-events: none;
-}
-.banner__slide {
-  z-index: 0;
-}
-.banner__slide.swiper-slide-active {
-  z-index: 1;
 }
 .banner__content {
   position: relative;

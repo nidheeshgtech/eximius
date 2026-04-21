@@ -16,6 +16,7 @@
     rel="stylesheet" />
 
   <link rel="preload" as="image" href="assets/images/ex_banner_01.webp" />
+  <link rel="preload" as="image" href="assets/images/exi_purpose_.webp" />
   <link rel="preload" as="image" href="assets/images/ex_banner_02.webp" />
 
   <link rel="stylesheet" href="assets/vendor/css/lenis.css" />
@@ -29,41 +30,18 @@
 
   <main id="main-content">
     <section class="banner" aria-label="Eximius Fellowship banner">
-      <div class="banner__slider swiper js-banner-slider">
+      <div class="banner__slider js-banner-slider">
 
+        <div class="banner__slide is-active">
+          <div class="banner__image" style="background-image: url('assets/images/ex_banner_01.webp');" aria-hidden="true"></div>
+        </div>
 
-        <div class="swiper-wrapper">
+        <div class="banner__slide">
+          <div class="banner__image" style="background-image: url('assets/images/exi_purpose_.webp');" aria-hidden="true"></div>
+        </div>
 
-          <div class="swiper-slide banner__slide">
-            <div class="banner__image" style="background-image: url('assets/images/ex_banner_01.webp');"
-              aria-hidden="true"></div>
-          </div>
-
-          <div class="swiper-slide banner__slide">
-            <div class="banner__image" style="background-image: url('assets/images/exi_purpose_.webp');"
-              aria-hidden="true"></div>
-          </div>
-
-          <div class="swiper-slide banner__slide">
-            <div class="banner__image" style="background-image: url('assets/images/ex_banner_01.webp');"
-              aria-hidden="true"></div>
-          </div>
-
-          <div class="swiper-slide banner__slide">
-            <div class="banner__image" style="background-image: url('assets/images/ex_banner_01.webp');"
-              aria-hidden="true"></div>
-          </div>
-
-          <div class="swiper-slide banner__slide">
-            <div class="banner__image" style="background-image: url('assets/images/exi_purpose_.webp');"
-              aria-hidden="true"></div>
-          </div>
-
-          <div class="swiper-slide banner__slide">
-            <div class="banner__image" style="background-image: url('assets/images/ex_banner_01.webp');"
-              aria-hidden="true"></div>
-          </div>
-
+        <div class="banner__slide">
+          <div class="banner__image" style="background-image: url('assets/images/ex_banner_02.webp');" aria-hidden="true"></div>
         </div>
 
       </div>
