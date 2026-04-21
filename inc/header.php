@@ -13,25 +13,22 @@ $navItems = [
   ['label' => 'Home', 'href' => $routes['home']],
   ['label' => 'About', 'href' => $routes['about']],
   ['label' => 'Opportunities', 'href' => $routes['opportunities']],
+  ['label' => 'Solutions', 'href' => $routes['home'] . '#'],
+  ['label' => 'Media', 'href' => $routes['home'] . '#'],
   ['label' => 'Admissions', 'href' => $routes['admissions']],
-  ['label' => 'Contact Us', 'href' => $routes['contact']],
 ];
 ?>
 <header class="site-header" id="site-header">
   <div class="container site-header__inner">
-    <a class="site-header__brand" href="<?= htmlspecialchars($routes['home'], ENT_QUOTES, 'UTF-8'); ?>" aria-label="Eximius home">
+    <a class="site-header__brand" href="<?= htmlspecialchars($routes['home'], ENT_QUOTES, 'UTF-8'); ?>"
+      aria-label="Eximius home">
       <img class="site-header__logo"
         src="<?= htmlspecialchars($assetPrefix . 'assets/images/header-logo.svg', ENT_QUOTES, 'UTF-8'); ?>"
         alt="Eximius" width="246" height="56" />
     </a>
 
-    <button
-      class="site-header__toggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls="site-header-nav"
-      aria-label="Open navigation menu"
-    >
+    <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-header-nav"
+      aria-label="Open navigation menu">
       <span class="site-header__toggle-line"></span>
       <span class="site-header__toggle-line"></span>
       <span class="site-header__toggle-line"></span>

@@ -38,6 +38,7 @@
     background: #ffffff;
     border-right: 1px solid #d9d9d9;
     border-bottom: 1px solid #d9d9d9;
+    // transition: background-color 0.32s ease;
 
     img {
       display: block;
@@ -45,6 +46,16 @@
       // max-height: 6.25rem;
       width: auto;
       height: auto;
+      // transition: filter 0.32s ease, opacity 0.32s ease;
+    }
+
+    &:hover,
+    &:focus-within {
+      background: #444b52;
+
+      img {
+        filter: brightness(0) invert(1);
+      }
     }
 
     &:nth-child(6n) {

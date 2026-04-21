@@ -26,6 +26,11 @@ h2,
   font-size: fluid(32, 80);
   font-weight: 500;
   line-height: 1.1;
+
+  @media (min-width: 1200px) and (max-width: 1540px) {
+    font-size: fluid(32, 60);
+  }
+
 }
 
 h3,

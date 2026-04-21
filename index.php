@@ -163,7 +163,7 @@
     <section class="where-section" aria-labelledby="where-title">
       <div class="where-section__bg" style="background-image: url('assets/images/where-exi.webp');" aria-hidden="true">
       </div>
-      <div class="where-section__overlay" aria-hidden="true"></div>
+      <!-- <div class="where-section__overlay" aria-hidden="true"></div> -->
 
       <div class="container where-section__content">
         <div class="where-section__divider revealme" aria-hidden="true"></div>
@@ -368,13 +368,13 @@
             </div>
 
             <nav class="site-footer__nav revealme" aria-label="Footer menu">
-              <a href="#main-content">Home</a>
-              <a href="#about-title">About</a>
-              <a href="#opportunities-title">Opportunities</a>
-              <a href="#where-title">Solutions</a>
-              <a href="#site-footer">Media</a>
-              <a href="#admissions-title">Admissions</a>
-              <a href="#contact-title">Contact Us</a>
+              <a href="#">Home</a>
+              <a href="#">About</a>
+              <a href="#">Opportunities</a>
+              <a href="#">Solutions</a>
+              <a href="#">Media</a>
+              <a href="#">Admissions</a>
+              <a href="#">Contact Us</a>
             </nav>
           </div>
 
