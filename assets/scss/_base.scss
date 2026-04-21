@@ -43,7 +43,12 @@ a {
   }
 }
 
-
+@media (min-width: 1100px) {
+  .container {
+    max-width: 100%;
+    --bs-gutter-x: 3.75rem;
+  }
+}
 
 @media (min-width: 1700px) {
   .container {

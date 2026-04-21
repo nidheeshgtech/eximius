@@ -51,7 +51,7 @@
 
   &__cta {
     color: #ffffff;
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     font-weight: 400;
     align-self: flex-start;
     white-space: nowrap;
@@ -63,8 +63,8 @@
   }
 
   &__cta-icon {
-    width: 2.75rem;
-    height: 2.75rem;
+    width: 3rem;
+    height: 3rem;
     background: #ffffff;
     color: $primary;
   }
@@ -109,8 +109,8 @@
     }
 
     &__cta-icon {
-      width: 2.4rem;
-      height: 2.4rem;
+      width: 2.625rem;
+      height: 2.625rem;
     }
   }
 }

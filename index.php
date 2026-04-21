@@ -40,7 +40,12 @@
           </div>
 
           <div class="swiper-slide banner__slide">
-            <div class="banner__image" style="background-image: url('assets/images/ex_banner_02.webp');"
+            <div class="banner__image" style="background-image: url('assets/images/exi_purpose_.webp');"
+              aria-hidden="true"></div>
+          </div>
+
+          <div class="swiper-slide banner__slide">
+            <div class="banner__image" style="background-image: url('assets/images/ex_banner_01.webp');"
               aria-hidden="true"></div>
           </div>
 
@@ -265,7 +270,7 @@
 
     <section class="admissions-section" aria-labelledby="admissions-title">
       <div class="admissions-section__frame revealme">
-        <div class="admissions-section__bg" style="background-image: url('assets/images/students-discussing.webp');"
+        <div class="admissions-section__bg" style="background-image: url('assets/images/students-discussing_.webp');"
           aria-hidden="true"></div>
         <div class="admissions-section__overlay" aria-hidden="true"></div>
 

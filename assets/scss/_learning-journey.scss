@@ -77,6 +77,24 @@
     border: 0;
     background: transparent;
     text-align: left;
+    transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+
+    &:hover,
+    &:focus-visible {
+      .journey-phase__title {
+        color: $primary;
+      }
+
+      .journey-phase__icon {
+        background: #ff6a3d;
+        box-shadow: 0 14px 28px rgba(255, 87, 34, 0.2);
+        transform: translateY(-1px);
+      }
+
+      .journey-phase__icon svg {
+        transform: rotate(90deg) translateX(2px);
+      }
+    }
   }
 
   &__title {
@@ -96,6 +114,10 @@
     flex: 0 0 3rem;
     background: $primary;
     color: #ffffff;
+    transition:
+      background-color 0.32s ease,
+      box-shadow 0.32s ease,
+      transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
 
     svg {
       width: 1.5rem;

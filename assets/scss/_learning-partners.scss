@@ -29,7 +29,7 @@
   }
 
   @media (max-width: 767.98px) {
-    padding: 3rem 0 3.5rem;
+    padding: 3rem 0 1.85rem;
   }
 }
 
@@ -72,46 +72,42 @@
       display: block;
       max-width: 100%;
       height: auto;
-      max-height: 4rem;
+      max-height: 2.75rem;
     }
   }
 
   &__brand--capadev img {
-    max-height: 3rem;
+    max-height: 2rem;
   }
 
   &__brand--bon img {
-    max-height: 3rem;
+    max-height: 2rem;
   }
 
   &__cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.875rem;
     color: #444b52;
     white-space: nowrap;
   }
 
   &__cta-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.75rem;
-    height: 2.75rem;
-    background: $primary;
-    color: #ffffff;
-    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    width: 3rem;
+    height: 3rem;
 
     svg {
-      width: 1.25rem;
-      height: 1.25rem;
+      width: 1.5rem;
+      height: 1.5rem;
       transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     }
   }
 
   &__cta-label {
-    font-size: 1rem;
+    font-size: 1.25rem;
     line-height: 1.2;
+  }
+
+  &__toggle:hover &__cta,
+  &__toggle:focus-visible &__cta {
+    color: #ffffff;
   }
 
   &.is-open &__cta-icon svg {
@@ -128,6 +124,10 @@
 
   &__body {
     padding: 0 1.875rem 1.5rem;
+
+    @media (min-width: 1300.98px) {
+      padding-right: 14%;
+    }
 
     p {
       margin: 0 0 1rem;
@@ -149,6 +149,15 @@
   }
 
   @media (max-width: 767.98px) {
+    &__brand img {
+      max-height: 2.25rem;
+    }
+
+    &__brand--capadev img,
+    &__brand--bon img {
+      max-height: 1.75rem;
+    }
+
     &__toggle {
       flex-direction: column;
       align-items: flex-start;
@@ -161,8 +170,12 @@
     }
 
     &__cta-icon {
-      width: 2.5rem;
-      height: 2.5rem;
+      width: 2.625rem;
+      height: 2.625rem;
+    }
+
+    &__cta-label {
+      font-size: 1rem;
     }
 
     &__body {

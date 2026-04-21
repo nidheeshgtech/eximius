@@ -22,21 +22,12 @@
   <?php include __DIR__ . '/inc/header.php'; ?>
 
   <main id="main-content">
-    <section class="about-hero" aria-labelledby="about-page-title">
-      <div class="about-hero__media" aria-hidden="true">
-        <div class="about-hero__image" style="background-image: url('assets/images/about_banner.webp');">
-        </div>
-        <div class="about-hero__overlay"></div>
-      </div>
-
-      <div class="container about-hero__content">
-        <div class="about-hero__spacer"></div>
-        <div class="about-hero__copy">
-          <h1 class="about-hero__title reveal-title" id="about-page-title">ABOUT EXIMIUS</h1>
-        </div>
-        <div class="about-hero__divider" aria-hidden="true"></div>
-      </div>
-    </section>
+    <?php
+    $pageBannerTitle = 'ABOUT EXIMIUS';
+    $pageBannerImage = 'assets/images/about_banner.webp';
+    $pageBannerId = 'about-page-title';
+    include __DIR__ . '/inc/inner-banner.php';
+    ?>
 
     <section class="leadership-section" aria-labelledby="leadership-title">
       <div class="container">
@@ -358,17 +349,17 @@
             <article class="partner-card">
               <button class="partner-card__toggle" type="button" aria-expanded="false">
                 <div class="partner-card__brand">
-                  <img src="https://www.figma.com/api/mcp/asset/c1f7ec61-245c-45b3-8ce3-f6917b48dd1d" alt="BRIDGE" />
+                  <img src="assets/images/logo-bridge.svg" alt="BRIDGE" />
                 </div>
 
-                <span class="partner-card__cta" aria-hidden="true">
-                  <span class="partner-card__cta-icon">
+                <span class="ui-arrow-cta partner-card__cta" aria-hidden="true">
+                  <span class="ui-arrow-cta__icon partner-card__cta-icon">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M7 12H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
                       <path d="M12 7L17 12L12 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
                     </svg>
                   </span>
-                  <span class="partner-card__cta-label">Learn more</span>
+                  <span class="ui-arrow-cta__label partner-card__cta-label">Learn more</span>
                 </span>
               </button>
 
@@ -388,17 +379,17 @@
             <article class="partner-card">
               <button class="partner-card__toggle" type="button" aria-expanded="false">
                 <div class="partner-card__brand partner-card__brand--capadev">
-                  <img src="https://www.figma.com/api/mcp/asset/e0eb98cb-7319-4492-90be-2eab27205031" alt="CAPADEV" />
+                  <img src="assets/images/logo-capadev.svg" alt="CAPADEV" />
                 </div>
 
-                <span class="partner-card__cta" aria-hidden="true">
-                  <span class="partner-card__cta-icon">
+                <span class="ui-arrow-cta partner-card__cta" aria-hidden="true">
+                  <span class="ui-arrow-cta__icon partner-card__cta-icon">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M7 12H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
                       <path d="M12 7L17 12L12 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
                     </svg>
                   </span>
-                  <span class="partner-card__cta-label">Learn more</span>
+                  <span class="ui-arrow-cta__label partner-card__cta-label">Learn more</span>
                 </span>
               </button>
 
@@ -417,18 +408,17 @@
             <article class="partner-card is-open">
               <button class="partner-card__toggle" type="button" aria-expanded="true">
                 <div class="partner-card__brand partner-card__brand--bon">
-                  <img src="https://www.figma.com/api/mcp/asset/ecb195c0-3653-4a93-94b8-113d46f2e4e8"
-                    alt="Bon Education" />
+                  <img src="assets/images/logo-bon.svg" alt="Bon Education" />
                 </div>
 
-                <span class="partner-card__cta" aria-hidden="true">
-                  <span class="partner-card__cta-icon">
+                <span class="ui-arrow-cta partner-card__cta" aria-hidden="true">
+                  <span class="ui-arrow-cta__icon partner-card__cta-icon">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M7 12H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
                       <path d="M12 7L17 12L12 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
                     </svg>
                   </span>
-                  <span class="partner-card__cta-label">Learn more</span>
+                  <span class="ui-arrow-cta__label partner-card__cta-label">Learn more</span>
                 </span>
               </button>
 
@@ -460,7 +450,7 @@
             <div class="specialists-showcase__content">
               <div class="specialists-showcase__divider" aria-hidden="true"></div>
               <h2 class="specialists-showcase__title reveal-title" id="specialists-title">EXIMIUS Specialists</h2>
-              <p class="specialists-showcase__text">
+              <p class="specialists-showcase__text revealme">
                 The current EXIMIUS cohort represents diverse areas of expertise, experiences, and backgrounds, while
                 sharing a strong commitment to excellence and innovation.
               </p>
@@ -476,7 +466,7 @@
             <div class="specialists-showcase__content">
               <div class="specialists-showcase__divider" aria-hidden="true"></div>
               <h2 class="specialists-showcase__title reveal-title">EXIMIUS Alumni</h2>
-              <p class="specialists-showcase__text">
+              <p class="specialists-showcase__text revealme">
                 The range of roles undertaken by EXIMIUS Alumni reflects not only their abilities but also the
                 tremendous opportunities made available to them across EDGE Group operations.
               </p>

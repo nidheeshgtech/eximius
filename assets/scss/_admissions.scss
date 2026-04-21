@@ -18,7 +18,7 @@
 
   &__bg {
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top;
     background-size: cover;
   }
 
@@ -159,8 +159,8 @@
     }
 
     &__cta-icon {
-      width: 2.4rem;
-      height: 2.4rem;
+      width: 2.625rem;
+      height: 2.625rem;
     }
   }
 }

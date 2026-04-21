@@ -1,8 +1,19 @@
+<?php
+$host = $_SERVER['HTTP_HOST'] ?? '';
+$isLocalHost = str_contains($host, 'localhost') || str_contains($host, '127.0.0.1');
+$routes = [
+  'home' => $isLocalHost ? '/eximius/index.php' : '/',
+  'about' => $isLocalHost ? '/eximius/about.php' : '/about',
+  'opportunities' => $isLocalHost ? '/eximius/opportunities.php' : '/opportunities',
+  'admissions' => $isLocalHost ? '/eximius/admissions.php' : '/admissions',
+  'contact' => $isLocalHost ? '/eximius/contact.php' : '/contact',
+];
+?>
 <footer class="site-footer" id="site-footer">
   <div class="container p-0">
     <div class="site-footer__inner">
       <div class="site-footer__top">
-        <a class="site-footer__brand" href="#main-content" aria-label="EXIMIUS home">
+        <a class="site-footer__brand" href="<?= htmlspecialchars($routes['home'], ENT_QUOTES, 'UTF-8'); ?>" aria-label="EXIMIUS home">
           <img class="site-footer__logo" src="assets/images/header-logo.svg" alt="EXIMIUS" />
         </a>
 
@@ -39,13 +50,11 @@
           </div>
 
           <nav class="site-footer__nav revealme" aria-label="Footer menu">
-            <a href="#main-content">Home</a>
-            <a href="#about-title">About</a>
-            <a href="#opportunities-title">Opportunities</a>
-            <a href="#where-title">Solutions</a>
-            <a href="#site-footer">Media</a>
-            <a href="#admissions-title">Admissions</a>
-            <a href="#contact-title">Contact Us</a>
+            <a href="<?= htmlspecialchars($routes['home'], ENT_QUOTES, 'UTF-8'); ?>">Home</a>
+            <a href="<?= htmlspecialchars($routes['about'], ENT_QUOTES, 'UTF-8'); ?>">About</a>
+            <a href="<?= htmlspecialchars($routes['opportunities'], ENT_QUOTES, 'UTF-8'); ?>">Opportunities</a>
+            <a href="<?= htmlspecialchars($routes['admissions'], ENT_QUOTES, 'UTF-8'); ?>">Admissions</a>
+            <a href="<?= htmlspecialchars($routes['contact'], ENT_QUOTES, 'UTF-8'); ?>">Contact Us</a>
           </nav>
         </div>
 

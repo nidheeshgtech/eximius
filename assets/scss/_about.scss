@@ -56,7 +56,7 @@
     align-items: center;
     gap: 0.6rem;
     color: #151f26;
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: 400;
     // include opacity + filter so revealme transition works; gap for hover
     transition:
@@ -90,15 +90,15 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2.2rem;
-    height: 2.2rem;
+    width: 3rem;
+    height: 3rem;
     background: $primary;
     color: #ffffff;
     transition: box-shadow 0.28s ease, transform 0.28s ease;
 
     svg {
-      width: 0.95rem;
-      height: 0.95rem;
+      width: 1.5rem;
+      height: 1.5rem;
       transition: transform 0.28s ease;
     }
   }
@@ -199,8 +199,8 @@
     }
 
     &__cta-icon {
-      width: 2.2rem;
-      height: 2.2rem;
+      width: 2.625rem;
+      height: 2.625rem;
     }
   }
 }

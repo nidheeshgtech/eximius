@@ -120,10 +120,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (admissionsBackground) {
       gsap.fromTo(admissionsBackground, {
-        yPercent: -16,
+        yPercent: 16,
         scale: 1.18,
       }, {
-        yPercent: 16,
+        yPercent: -16,
         scale: 1.28,
         ease: 'none',
         scrollTrigger: {
@@ -479,6 +479,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const triggers = opportunitiesShowcase.querySelectorAll('[data-opportunity-trigger]');
     const images = opportunitiesShowcase.querySelectorAll('[data-opportunity-image]');
     const copy = opportunitiesShowcase.querySelector('[data-opportunity-copy]');
+    const select = opportunitiesShowcase.querySelector('[data-opportunity-select]');
+    const prefersTouchSelection = window.matchMedia('(hover: none), (pointer: coarse)').matches;
     const opportunityCopyMap = {
       platforms: 'The Platforms & Systems cluster focuses on the design, manufacture, assembly, repair, overhaul and upgrade across a whole world of air, land and sea platforms and systems, enabling advanced solutions across any terrain, anywhere in the world.',
       missiles: 'The Missile & Weapons cluster develops advanced strike and defence systems, combining precision engineering, systems integration, and mission-ready performance across complex operational requirements.',
@@ -495,6 +497,10 @@ document.addEventListener('DOMContentLoaded', () => {
         trigger.classList.toggle('is-active', isActive);
         trigger.setAttribute('aria-pressed', String(isActive));
       });
+
+      if (select && select.value !== key) {
+        select.value = key;
+      }
 
       const nextImage = opportunitiesShowcase.querySelector(`[data-opportunity-image="${key}"]`);
       const activeImage = opportunitiesShowcase.querySelector('.opportunities-showcase__image.is-active');
@@ -547,9 +553,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     triggers.forEach((trigger) => {
       const handleChange = () => setOpportunity(trigger.dataset.target);
-      trigger.addEventListener('mouseenter', handleChange);
+      if (!prefersTouchSelection) {
+        trigger.addEventListener('mouseenter', handleChange);
+      }
       trigger.addEventListener('focus', handleChange);
       trigger.addEventListener('click', handleChange);
+    });
+
+    select?.addEventListener('change', (event) => {
+      setOpportunity(event.target.value);
     });
   }
 

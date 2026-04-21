@@ -1,17 +1,25 @@
 <?php
 $assetPrefix = $assetPrefix ?? '';
+$host = $_SERVER['HTTP_HOST'] ?? '';
+$isLocalHost = str_contains($host, 'localhost') || str_contains($host, '127.0.0.1');
+$routes = [
+  'home' => $isLocalHost ? '/eximius/index.php' : '/',
+  'about' => $isLocalHost ? '/eximius/about.php' : '/about',
+  'opportunities' => $isLocalHost ? '/eximius/opportunities.php' : '/opportunities',
+  'admissions' => $isLocalHost ? '/eximius/admissions.php' : '/admissions',
+  'contact' => $isLocalHost ? '/eximius/contact.php' : '/contact',
+];
 $navItems = [
-  ['label' => 'Home', 'href' => '#'],
-  ['label' => 'About', 'href' => '#'],
-  ['label' => 'Opportunities', 'href' => '#'],
-  ['label' => 'Solutions', 'href' => '#'],
-  ['label' => 'Media', 'href' => '#'],
-  ['label' => 'Admissions', 'href' => '#'],
+  ['label' => 'Home', 'href' => $routes['home']],
+  ['label' => 'About', 'href' => $routes['about']],
+  ['label' => 'Opportunities', 'href' => $routes['opportunities']],
+  ['label' => 'Admissions', 'href' => $routes['admissions']],
+  ['label' => 'Contact Us', 'href' => $routes['contact']],
 ];
 ?>
 <header class="site-header" id="site-header">
   <div class="container site-header__inner">
-    <a class="site-header__brand" href="/" aria-label="Eximius home">
+    <a class="site-header__brand" href="<?= htmlspecialchars($routes['home'], ENT_QUOTES, 'UTF-8'); ?>" aria-label="Eximius home">
       <img class="site-header__logo"
         src="<?= htmlspecialchars($assetPrefix . 'assets/images/header-logo.svg', ENT_QUOTES, 'UTF-8'); ?>"
         alt="Eximius" width="246" height="56" />
@@ -40,7 +48,7 @@ $navItems = [
         <?php endforeach; ?>
       </ul>
 
-      <a class="ui-arrow-cta site-header__cta" href="#">
+      <a class="ui-arrow-cta site-header__cta" href="<?= htmlspecialchars($routes['contact'], ENT_QUOTES, 'UTF-8'); ?>">
         <span class="ui-arrow-cta__icon site-header__cta-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7 12H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
