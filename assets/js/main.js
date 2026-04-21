@@ -503,7 +503,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const { gsap } = window;
         gsap.killTweensOf([...images]);
 
-        gsap.set(nextImage, { autoAlpha: 1, scale: 1.04, clipPath: 'inset(100% 0 0% 0)' });
+        gsap.set(nextImage, { autoAlpha: 1, scale: 1.04, clipPath: 'inset(100% 0 0% 0)', zIndex: 2 });
         nextImage.classList.add('is-active');
 
         if (activeImage) {
