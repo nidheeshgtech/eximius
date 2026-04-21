@@ -190,14 +190,11 @@
     object-fit: cover;
     opacity: 0;
     visibility: hidden;
-    transform: scale(1.04);
-    transform-origin: center bottom;
-    will-change: transform, opacity, clip-path;
+    will-change: opacity;
 
     &.is-active {
       opacity: 1;
       visibility: visible;
-      transform: scale(1);
     }
   }
 

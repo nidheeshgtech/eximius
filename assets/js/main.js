@@ -503,15 +503,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const { gsap } = window;
         gsap.killTweensOf([...images]);
 
-        gsap.set(nextImage, { autoAlpha: 1, scale: 1.04, clipPath: 'inset(100% 0 0% 0)', zIndex: 2 });
+        gsap.set(nextImage, { autoAlpha: 0, zIndex: 2 });
         nextImage.classList.add('is-active');
 
         if (activeImage) {
           gsap.to(activeImage, {
             autoAlpha: 0,
-            scale: 1.02,
-            duration: 0.3,
-            ease: 'power2.in',
+            duration: 0.45,
+            ease: 'power2.inOut',
             onComplete: () => {
               activeImage.classList.remove('is-active');
               gsap.set(activeImage, { clearProps: 'all' });
@@ -520,10 +519,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         gsap.to(nextImage, {
-          clipPath: 'inset(0% 0 0% 0)',
-          scale: 1,
-          duration: 0.9,
-          ease: 'power4.out',
+          autoAlpha: 1,
+          duration: 0.65,
+          ease: 'power2.inOut',
         });
       } else {
         images.forEach((image) => image.classList.toggle('is-active', image.dataset.opportunityImage === key));
