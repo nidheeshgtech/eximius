@@ -33,15 +33,18 @@
       <div class="banner__slider js-banner-slider">
 
         <div class="banner__slide is-active">
-          <div class="banner__image" style="background-image: url('assets/images/ex_banner_01.webp');" aria-hidden="true"></div>
+          <div class="banner__image" style="background-image: url('assets/images/ex_banner_01.webp');"
+            aria-hidden="true"></div>
         </div>
 
         <div class="banner__slide">
-          <div class="banner__image" style="background-image: url('assets/images/exi_purpose_.webp');" aria-hidden="true"></div>
+          <div class="banner__image" style="background-image: url('assets/images/exi_purpose_.webp');"
+            aria-hidden="true"></div>
         </div>
 
         <div class="banner__slide">
-          <div class="banner__image" style="background-image: url('assets/images/ex_banner_02.webp');" aria-hidden="true"></div>
+          <div class="banner__image" style="background-image: url('assets/images/ex_banner_02.webp');"
+            aria-hidden="true"></div>
         </div>
 
       </div>
@@ -50,26 +53,26 @@
 
       <div class="container banner__content">
         <div class="banner__headline-wrap">
-          <h1 class="banner__title reveal-title">EXIMIUS FELLOWSHIP</h1>
+          <h1 class="banner__title reveal-title--">EXIMIUS FELLOWSHIP</h1>
         </div>
 
         <div class="banner__bottom">
           <div class="banner__divider" aria-hidden="true"></div>
 
-          <div class="banner__meta">
-            <p class="banner__eyebrow reveal-words">Engineer the Future</p>
+          <div class="banner__meta reveal">
+            <p class="banner__eyebrow">Engineer the Future</p>
 
-            <div class="banner__description">
-              <p class="reveal-words">A highly selective, 12-month development program for exceptional university
+            <div class="banner__description reveal">
+              <p class="">A highly selective, 12-month development program for exceptional university
                 graduates.</p>
-              <p class="reveal-words">Real challenges. Real stakes. Real opportunity. Real impact. Learn to lead in a
+              <p class="">Real challenges. Real stakes. Real opportunity. Real impact. Learn to lead in a
                 dynamic future.</p>
-              <p class="reveal-words">EXIMIUS Fellows graduate with advanced engineering and technical expertise and
+              <p class="">EXIMIUS Fellows graduate with advanced engineering and technical expertise and
                 strong commercial
                 acumen.</p>
             </div>
 
-            <a class="ui-arrow-cta banner__cta revealme" href="#">
+            <a class="ui-arrow-cta banner__cta " href="#">
               <span class="ui-arrow-cta__icon banner__cta-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7 12H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
