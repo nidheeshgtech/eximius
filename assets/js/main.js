@@ -241,8 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new Swiper(bannerSlider, {
       loop: true,
       effect: 'fade',
-      fadeEffect: { crossFade: true },
-      speed: 1000,
+      speed: 900,
       autoplay: {
         delay: 5500,
         disableOnInteraction: false,

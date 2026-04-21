@@ -11755,14 +11755,20 @@ p {
   background-position: center;
   background-size: cover;
   transform: scale(1.02);
-  will-change: transform, opacity;
+  will-change: transform;
 }
 .banner__overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(180deg, rgba(21, 31, 38, 0.32) 0%, rgba(21, 31, 38, 0.8) 70.192%), linear-gradient(90deg, rgba(21, 31, 38, 0.14) 0%, rgba(21, 31, 38, 0) 48%);
+  background: linear-gradient(180deg, rgba(21, 31, 38, 0.18) 0%, rgba(21, 31, 38, 0.65) 70%), linear-gradient(90deg, rgba(21, 31, 38, 0.1) 0%, rgba(21, 31, 38, 0) 48%);
   pointer-events: none;
+}
+.banner__slide {
+  z-index: 0;
+}
+.banner__slide.swiper-slide-active {
+  z-index: 1;
 }
 .banner__content {
   position: relative;
