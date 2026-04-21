@@ -34,10 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const videoToggle = document.querySelector('.video-showcase__play');
   const videoToggleLabel = document.querySelector('.video-showcase__play-label');
   const videoIframe = document.querySelector('.video-showcase__iframe');
-  const aboutPageHeroImage = document.querySelector('.about-hero__image');
+  const innerPageBannerImage = document.querySelector('.inner-page-banner__image');
   const accordionRoots = document.querySelectorAll('[data-accordion]');
   const partnerStack = document.querySelector('[data-partner-stack]');
   const partnerCards = document.querySelectorAll('.partner-card');
+  const opportunitiesShowcase = document.querySelector('[data-opportunities-showcase]');
   const videoMedia = document.querySelector('.video-showcase__media');
   const aboutImage = document.querySelector('.about-section__image');
   const whereBackground = document.querySelector('.where-section__bg');
@@ -52,13 +53,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (hasGsapScroll && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const { gsap, ScrollTrigger } = window;
 
-    if (aboutPageHeroImage) {
-      gsap.to(aboutPageHeroImage, {
+    if (innerPageBannerImage) {
+      gsap.to(innerPageBannerImage, {
         yPercent: 8,
         scale: 1.14,
         ease: 'none',
         scrollTrigger: {
-          trigger: '.about-hero',
+          trigger: '.inner-page-banner',
           start: 'top top',
           end: 'bottom top',
           scrub: 1.1,
@@ -238,22 +239,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (bannerSlider && typeof Swiper !== 'undefined') {
     new Swiper(bannerSlider, {
-      effect: 'fade',
       loop: true,
-      speed: 1000,
-      allowTouchMove: true,
-      grabCursor: true,
-      preloadImages: true,
-      updateOnImagesReady: true,
-      watchSlidesProgress: true,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: false,
-      },
-      fadeEffect: {
-        crossFade: true,
-      },
+      slidesPerView: 1,
+      spaceBetween: 30,
+
+      breakpoints: {
+        600: {
+          slidesPerView: 1
+        },
+        1000: {
+          slidesPerView: 1
+        },
+        1200: {
+          slidesPerView: 1
+        }
+      }
+
     });
   }
 
@@ -471,6 +472,86 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setPartnerState(card, !isOpen);
       });
+    });
+  }
+
+  if (opportunitiesShowcase) {
+    const triggers = opportunitiesShowcase.querySelectorAll('[data-opportunity-trigger]');
+    const images = opportunitiesShowcase.querySelectorAll('[data-opportunity-image]');
+    const copy = opportunitiesShowcase.querySelector('[data-opportunity-copy]');
+    const opportunityCopyMap = {
+      platforms: 'The Platforms & Systems cluster focuses on the design, manufacture, assembly, repair, overhaul and upgrade across a whole world of air, land and sea platforms and systems, enabling advanced solutions across any terrain, anywhere in the world.',
+      missiles: 'The Missile & Weapons cluster develops advanced strike and defence systems, combining precision engineering, systems integration, and mission-ready performance across complex operational requirements.',
+      space: 'The Space & Cyber Technologies cluster works across secure communications, digital infrastructure, cyber resilience, and future-ready systems that support high-stakes national capability development.',
+      trading: 'The Trading & Mission Support cluster drives mission enablement through logistics, specialist services, operational support, and strategic commercial coordination across critical programs.',
+      technology: 'The Technology & Innovation cluster advances next-generation concepts, rapid prototyping, and frontier technologies that shape future capability across EDGE Group environments.',
+      research: 'The Research & Development cluster explores breakthrough engineering, experimentation, and applied innovation to solve high-value technical challenges with real commercial and strategic impact.',
+      homeland: 'The Homeland Security cluster delivers integrated solutions that support public safety, secure infrastructure, and operational readiness through advanced technologies and resilient system design.',
+    };
+
+    const setOpportunity = (key) => {
+      triggers.forEach((trigger) => {
+        const isActive = trigger.dataset.target === key;
+        trigger.classList.toggle('is-active', isActive);
+        trigger.setAttribute('aria-pressed', String(isActive));
+      });
+
+      const nextImage = opportunitiesShowcase.querySelector(`[data-opportunity-image="${key}"]`);
+      const activeImage = opportunitiesShowcase.querySelector('.opportunities-showcase__image.is-active');
+
+      if (hasGsapScroll && window.gsap && nextImage && activeImage !== nextImage) {
+        const { gsap } = window;
+        gsap.killTweensOf([...images]);
+
+        gsap.set(nextImage, { autoAlpha: 1, scale: 1.04, clipPath: 'inset(100% 0 0% 0)' });
+        nextImage.classList.add('is-active');
+
+        if (activeImage) {
+          gsap.to(activeImage, {
+            autoAlpha: 0,
+            scale: 1.02,
+            duration: 0.3,
+            ease: 'power2.in',
+            onComplete: () => {
+              activeImage.classList.remove('is-active');
+              gsap.set(activeImage, { clearProps: 'all' });
+            },
+          });
+        }
+
+        gsap.to(nextImage, {
+          clipPath: 'inset(0% 0 0% 0)',
+          scale: 1,
+          duration: 0.9,
+          ease: 'power4.out',
+        });
+      } else {
+        images.forEach((image) => image.classList.toggle('is-active', image.dataset.opportunityImage === key));
+      }
+
+      if (copy) {
+        if (hasGsapScroll && window.gsap) {
+          window.gsap.to(copy, {
+            autoAlpha: 0,
+            y: 10,
+            duration: 0.18,
+            ease: 'power2.out',
+            onComplete: () => {
+              copy.textContent = opportunityCopyMap[key] || opportunityCopyMap.platforms;
+              window.gsap.fromTo(copy, { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.32, ease: 'power2.out' });
+            },
+          });
+        } else {
+          copy.textContent = opportunityCopyMap[key] || opportunityCopyMap.platforms;
+        }
+      }
+    };
+
+    triggers.forEach((trigger) => {
+      const handleChange = () => setOpportunity(trigger.dataset.target);
+      trigger.addEventListener('mouseenter', handleChange);
+      trigger.addEventListener('focus', handleChange);
+      trigger.addEventListener('click', handleChange);
     });
   }
 
