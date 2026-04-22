@@ -11368,6 +11368,9 @@ a:hover {
 .ui-arrow-cta:hover, .ui-arrow-cta:focus-visible {
   color: #FF5722;
 }
+.ui-arrow-cta:hover .ui-arrow-cta__icon svg, .ui-arrow-cta:focus-visible .ui-arrow-cta__icon svg {
+  transform: translateX(2px);
+}
 .ui-arrow-cta:hover .ui-arrow-cta__label, .ui-arrow-cta:focus-visible .ui-arrow-cta__label {
   color: #FF5722;
 }
@@ -11941,6 +11944,9 @@ p {
 }
 .banner__cta:hover .banner__cta-icon, .banner__cta:focus-visible .banner__cta-icon {
   box-shadow: 0 14px 28px rgba(255, 87, 34, 0.24);
+}
+.banner__cta:hover .banner__cta-icon svg, .banner__cta:focus-visible .banner__cta-icon svg {
+  transform: translateX(2px);
 }
 .banner__cta-icon {
   display: inline-flex;
@@ -13843,6 +13849,9 @@ p {
 }
 .contact-section__cta:hover, .contact-section__cta:focus-visible {
   color: rgba(255, 255, 255, 0.9);
+}
+.contact-section__cta:hover .contact-section__cta-icon svg, .contact-section__cta:focus-visible .contact-section__cta-icon svg {
+  transform: translateX(1px);
 }
 .contact-section__cta:hover .contact-section__cta-label, .contact-section__cta:focus-visible .contact-section__cta-label {
   color: rgba(255, 255, 255, 0.9);
