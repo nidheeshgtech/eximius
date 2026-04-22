@@ -216,7 +216,7 @@
     gap: 1rem;
 
     &__content {
-      gap: 1.5rem;
+      gap: 0px;
     }
 
     &__meta {
@@ -235,6 +235,7 @@
 
     &__role {
       font-weight: 500;
+      margin-bottom: 1rem;
     }
 
     &__cta {

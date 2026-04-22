@@ -12183,7 +12183,7 @@ p {
     gap: 1rem;
   }
   .leadership-card__content {
-    gap: 1.5rem;
+    gap: 0px;
   }
   .leadership-card__meta {
     order: 1;
@@ -12198,6 +12198,7 @@ p {
   }
   .leadership-card__role {
     font-weight: 500;
+    margin-bottom: 1rem;
   }
   .leadership-card__cta {
     font-size: 1rem;
