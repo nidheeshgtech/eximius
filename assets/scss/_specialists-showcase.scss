@@ -28,6 +28,26 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &__link {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: block;
+    text-indent: -9999px;
+    overflow: hidden;
+  }
+
+  &__card:hover &__media img,
+  &__card:focus-within &__media img {
+    transform: scale(1.04);
+  }
+
+  &__link:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: -4px;
   }
 
   &__overlay {

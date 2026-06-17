@@ -13269,6 +13269,22 @@ p {
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.specialists-showcase__link {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: block;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+.specialists-showcase__card:hover .specialists-showcase__media img, .specialists-showcase__card:focus-within .specialists-showcase__media img {
+  transform: scale(1.04);
+}
+.specialists-showcase__link:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: -4px;
 }
 .specialists-showcase__overlay {
   background: linear-gradient(180deg, rgba(21, 31, 38, 0) 0%, rgba(21, 31, 38, 0.8) 100%);

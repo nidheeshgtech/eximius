@@ -149,6 +149,9 @@
                 sharing a strong commitment to excellence and innovation.
               </p>
             </div>
+
+            <a class="specialists-showcase__link" href="<?php echo $isLocalHost ? '/eximius/specialists.php' : '/specialists'; ?>"
+              aria-label="View EXIMIUS Specialists"></a>
           </article>
 
           <article class="specialists-showcase__card revealme">
@@ -165,6 +168,9 @@
                 tremendous opportunities made available to them across EDGE Group operations.
               </p>
             </div>
+
+            <a class="specialists-showcase__link" href="<?php echo $isLocalHost ? '/eximius/alumni.php' : '/alumni'; ?>"
+              aria-label="View EXIMIUS Alumni"></a>
           </article>
         </div>
       </div>
