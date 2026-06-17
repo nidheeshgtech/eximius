@@ -24,6 +24,8 @@
   <main id="main-content">
     <?php
     $pageBannerTitle = 'EXIMIUS SPECIALISTS';
+    $pageBannerTitleBreakAfter = 1;
+    $pageBannerDescription = 'The current EXIMIUS cohort represents diverse areas of expertise, experiences, and backgrounds, while sharing a strong commitment to excellence and innovation.';
     $pageBannerImage = 'assets/images/specialists-image.webp';
     $pageBannerId = 'specialists-page-title';
     include __DIR__ . '/inc/inner-banner.php';

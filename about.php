@@ -24,6 +24,7 @@
   <main id="main-content">
     <?php
     $pageBannerTitle = 'ABOUT EXIMIUS';
+    $pageBannerTitleBreakAfter = 1;
     $pageBannerImage = 'assets/images/about_banner.webp';
     $pageBannerId = 'about-page-title';
     include __DIR__ . '/inc/inner-banner.php';

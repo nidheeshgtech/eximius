@@ -181,6 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const words = text.split(/\s+/);
+    const breakAfter = parseInt(title.dataset.breakAfter || '', 10);
     title.dataset.splitReady = 'true';
     title.setAttribute('aria-label', text);
     title.textContent = '';
@@ -193,11 +194,18 @@ document.addEventListener('DOMContentLoaded', () => {
       title.appendChild(wordSpan);
 
       if (index < words.length - 1) {
-        const space = document.createElement('span');
-        space.className = 'reveal-title__space';
-        space.setAttribute('aria-hidden', 'true');
-        space.textContent = ' ';
-        title.appendChild(space);
+        if (Number.isInteger(breakAfter) && index === breakAfter - 1) {
+          const lineBreak = document.createElement('span');
+          lineBreak.className = 'reveal-title__break';
+          lineBreak.setAttribute('aria-hidden', 'true');
+          title.appendChild(lineBreak);
+        } else {
+          const space = document.createElement('span');
+          space.className = 'reveal-title__space';
+          space.setAttribute('aria-hidden', 'true');
+          space.textContent = ' ';
+          title.appendChild(space);
+        }
       }
     });
   });

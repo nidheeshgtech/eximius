@@ -24,6 +24,8 @@
   <main id="main-content">
     <?php
     $pageBannerTitle = 'EXIMIUS ALUMNI';
+    $pageBannerTitleBreakAfter = 1;
+    $pageBannerDescription = 'The range of roles undertaken by EXIMIUS Alumni reflects not only their abilities but also the tremendous opportunities made available to them across EDGE Group operations.';
     $pageBannerImage = 'assets/images/alumini-image.webp';
     $pageBannerId = 'alumni-page-title';
     include __DIR__ . '/inc/inner-banner.php';

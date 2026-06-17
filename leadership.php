@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Meet the leadership behind EXIMIUS — championing advanced technology capability and elite talent development." />
+  <meta name="description"
+    content="Meet the leadership behind EXIMIUS — championing advanced technology capability and elite talent development." />
   <title>EXIMIUS Leadership</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,6 +25,7 @@
   <main id="main-content">
     <?php
     $pageBannerTitle = 'EXIMIUS LEADERSHIP';
+    $pageBannerTitleBreakAfter = 1;
     $pageBannerImage = 'assets/images/leadership-image.webp';
     $pageBannerId = 'leadership-page-title';
     include __DIR__ . '/inc/inner-banner.php';
@@ -33,14 +35,13 @@
       <div class="container">
         <div class="leadership-section__header">
           <p class="leadership-section__eyebrow reveal-words">( Leadership )</p>
-          <h2 class="leadership-section__title reveal-title" id="leadership-title">EXIMIUS Leadership</h2>
+          <!-- <h2 class="leadership-section__title reveal-title" id="leadership-title">EXIMIUS Leadership</h2> -->
         </div>
 
         <div class="leadership-section__list">
           <article class="leadership-card revealme-group">
             <div class="leadership-card__media revealme">
-              <img src="assets/images/leader01.webp"
-                alt="H.E. Faisal Al Bannai" />
+              <img src="assets/images/leader01.webp" alt="H.E. Faisal Al Bannai" />
             </div>
 
             <div class="leadership-card__content">
@@ -69,8 +70,7 @@
 
           <article class="leadership-card revealme-group">
             <div class="leadership-card__media revealme">
-              <img src="assets/images/leader02.webp"
-                alt="Sana Al Daoumi" />
+              <img src="assets/images/leader02.webp" alt="Sana Al Daoumi" />
             </div>
 
             <div class="leadership-card__content">
@@ -145,7 +145,8 @@
               </div>
             </div>
 
-            <a class="ui-arrow-cta contact-section__cta" href="<?php echo $isLocalHost ? '/eximius/contact.php' : '/contact'; ?>">
+            <a class="ui-arrow-cta contact-section__cta"
+              href="<?php echo $isLocalHost ? '/eximius/contact.php' : '/contact'; ?>">
               <span class="ui-arrow-cta__icon contact-section__cta-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7 12H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />

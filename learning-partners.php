@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Meet the EXIMIUS learning partners — BRIDGE, CAPADEV, and Bon Education — delivering world-class curricula and immersive learning." />
+  <meta name="description"
+    content="Meet the EXIMIUS learning partners — BRIDGE, CAPADEV, and Bon Education — delivering world-class curricula and immersive learning." />
   <title>Learning Partners | EXIMIUS</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,6 +25,7 @@
   <main id="main-content">
     <?php
     $pageBannerTitle = 'LEARNING PARTNERS';
+    $pageBannerTitleBreakAfter = 1;
     $pageBannerImage = 'assets/images/learning-image.webp';
     $pageBannerId = 'learning-partners-page-title';
     include __DIR__ . '/inc/inner-banner.php';
@@ -73,11 +75,10 @@
           </div>
 
           <div class="partner-tabs__item">
-            <button class="partner-tabs__tab" type="button" role="tab" aria-selected="false"
-              aria-expanded="false" id="partner-tab-capadev" aria-controls="partner-panel-capadev"
-              data-partner-tab="capadev">
+            <button class="partner-tabs__tab" type="button" role="tab" aria-selected="false" aria-expanded="false"
+              id="partner-tab-capadev" aria-controls="partner-panel-capadev" data-partner-tab="capadev">
               <span class="partner-tabs__logo partner-tabs__logo--capadev">
-                <img src="assets/images/logo-capadev.svg" alt="CAPADEV" />
+                <img style="    width: 170px; height: auto;" src="assets/images/logo-capadev.svg" alt="CAPADEV" />
               </span>
               <span class="partner-tabs__chevron" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -110,8 +111,8 @@
           </div>
 
           <div class="partner-tabs__item">
-            <button class="partner-tabs__tab" type="button" role="tab" aria-selected="false"
-              aria-expanded="false" id="partner-tab-bon" aria-controls="partner-panel-bon" data-partner-tab="bon">
+            <button class="partner-tabs__tab" type="button" role="tab" aria-selected="false" aria-expanded="false"
+              id="partner-tab-bon" aria-controls="partner-panel-bon" data-partner-tab="bon">
               <span class="partner-tabs__logo partner-tabs__logo--bon">
                 <img src="assets/images/logo-bon.svg" alt="Bon Education" />
               </span>
@@ -145,9 +146,8 @@
           </div>
 
           <div class="partner-tabs__item">
-            <button class="partner-tabs__tab" type="button" role="tab" aria-selected="false"
-              aria-expanded="false" id="partner-tab-beacon" aria-controls="partner-panel-beacon"
-              data-partner-tab="beacon">
+            <button class="partner-tabs__tab" type="button" role="tab" aria-selected="false" aria-expanded="false"
+              id="partner-tab-beacon" aria-controls="partner-panel-beacon" data-partner-tab="beacon">
               <span class="partner-tabs__logo partner-tabs__logo--beacon">
                 <img src="assets/images/logo-beacon-red.svg" alt="BEACON RED" />
               </span>
@@ -197,7 +197,8 @@
               </div>
             </div>
 
-            <a class="ui-arrow-cta contact-section__cta" href="<?php echo $isLocalHost ? '/eximius/contact.php' : '/contact'; ?>">
+            <a class="ui-arrow-cta contact-section__cta"
+              href="<?php echo $isLocalHost ? '/eximius/contact.php' : '/contact'; ?>">
               <span class="ui-arrow-cta__icon contact-section__cta-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7 12H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />

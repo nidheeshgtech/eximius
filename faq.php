@@ -24,6 +24,7 @@
   <main id="main-content">
     <?php
     $pageBannerTitle = 'FREQUENTLY ASKED QUESTIONS';
+    $pageBannerTitleBreakAfter = 2;
     $pageBannerImage = 'assets/images/faq-image.webp';
     $pageBannerId = 'faq-page-title';
     include __DIR__ . '/inc/inner-banner.php';

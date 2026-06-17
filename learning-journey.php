@@ -24,6 +24,7 @@
   <main id="main-content">
     <?php
     $pageBannerTitle = 'LEARNING JOURNEY';
+    $pageBannerTitleBreakAfter = 1;
     $pageBannerImage = 'assets/images/earning-journey-image.webp';
     $pageBannerId = 'learning-journey-page-title';
     include __DIR__ . '/inc/inner-banner.php';

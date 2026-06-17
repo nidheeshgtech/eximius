@@ -166,6 +166,11 @@
     position: relative;
   }
 
+  // Parent link with a dropdown shouldn't show the hover underline
+  &__item--has-children > &__link::after {
+    display: none;
+  }
+
   &__submenu-toggle {
     display: inline-flex;
     align-items: center;

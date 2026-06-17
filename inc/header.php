@@ -13,6 +13,7 @@ $routes = [
   'learning_partners' => $isLocalHost ? '/eximius/learning-partners.php' : '/learning-partners',
   'specialists' => $isLocalHost ? '/eximius/specialists.php' : '/specialists',
   'alumni' => $isLocalHost ? '/eximius/alumni.php' : '/alumni',
+  'faq' => $isLocalHost ? '/eximius/faq.php' : '/faq',
 ];
 $navItems = [
   ['label' => 'Home', 'href' => $routes['home']],
@@ -31,6 +32,7 @@ $navItems = [
   ['label' => 'Solutions', 'href' => $routes['home'] . '#'],
   ['label' => 'Media', 'href' => $routes['home'] . '#'],
   ['label' => 'Admissions', 'href' => $routes['admissions']],
+  ['label' => 'FAQ', 'href' => $routes['faq']],
 ];
 ?>
 <header class="site-header" id="site-header">
@@ -81,16 +83,6 @@ $navItems = [
           </li>
         <?php endforeach; ?>
       </ul>
-
-      <a class="ui-arrow-cta site-header__cta" href="<?= htmlspecialchars($routes['contact'], ENT_QUOTES, 'UTF-8'); ?>">
-        <span class="ui-arrow-cta__icon site-header__cta-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 12H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
-            <path d="M12 7L17 12L12 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
-          </svg>
-        </span>
-        <span class="ui-arrow-cta__label site-header__cta-label">Contact Us</span>
-      </a>
 
       <button class="site-header__theme-toggle" id="theme-toggle" type="button"
         aria-label="Switch to dark theme">
