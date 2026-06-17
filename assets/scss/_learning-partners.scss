@@ -1,6 +1,6 @@
 .learning-partners {
   padding: 4rem 0 4.5rem;
-  background: #f8f8f6;
+  background: var(--color-surface-page);
 
   &__layout {
     display: grid;
@@ -21,6 +21,13 @@
     position: relative;
   }
 
+  // ----- Tabs variant (Learning Partners page) -----
+  &--tabs {
+    .learning-partners__eyebrow {
+      margin-bottom: 2.5rem;
+    }
+  }
+
   @media (max-width: 991.98px) {
     &__layout {
       grid-template-columns: 1fr;
@@ -33,65 +40,109 @@
   }
 }
 
-.partner-card {
-  position: relative;
-  top: 0;
-  border: 1px solid #d9d9d9;
-  background: #f8f8f6;
-  overflow: hidden;
-  box-shadow: 0 8px 22px rgba(68, 75, 82, 0.04);
+// ============================================================
+// Learning Partners — tabs (desktop) / accordion (mobile)
+// Mobile-first: each logo toggles its panel directly beneath it.
+// ============================================================
+.partner-tabs {
+  display: block;
 
-  &:first-child {
-    margin-top: 0;
+  &__item + &__item {
+    margin-top: 0.5rem;
   }
 
-  &.is-open {
-    .partner-card__panel {
-      opacity: 1;
+  &__tab {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    min-height: 4.5rem;
+    padding: 1.25rem 1.5rem;
+    border: 0;
+    background: rgba(var(--color-dark-navy-rgb), 0.03);
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover,
+    &:focus-visible {
+      background: rgba(var(--color-dark-navy-rgb), 0.06);
+    }
+
+    &.is-active {
+      background: rgba(var(--color-dark-navy-rgb), 0.05);
     }
   }
 
-  &__toggle {
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1.5rem;
-    padding: 1.875rem 1.875rem 1.5rem;
-    border: 0;
-    background: transparent;
-    text-align: left;
-  }
-
-  &__brand {
+  &__logo {
     display: inline-flex;
     align-items: center;
-    min-height: 3rem;
 
     img {
       display: block;
+      width: auto;
+      height: 1.75rem;
       max-width: 100%;
-      height: auto;
-      max-height: 2.75rem;
     }
   }
 
-  &__brand--capadev img {
-    max-height: 2rem;
+  &__chevron {
+    display: inline-flex;
+    flex: 0 0 auto;
+    color: var(--color-text-body);
+    transition: transform 0.3s ease, color 0.3s ease;
+
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 
-  &__brand--bon img {
-    max-height: 2rem;
+  &__tab.is-active &__chevron {
+    transform: rotate(180deg);
+    color: $primary;
+  }
+
+  &__panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+
+    &[hidden] {
+      display: none;
+    }
+
+    &.is-active {
+      animation: partner-fade 0.4s ease both;
+    }
+  }
+
+  &__body {
+    p {
+      margin: 0 0 1.25rem;
+      color: var(--color-text-body);
+      font-size: 1.125rem;
+      line-height: 1.5;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
   }
 
   &__cta {
-    color: #444b52;
+    align-self: flex-start;
+    color: var(--color-text-body);
     white-space: nowrap;
   }
 
   &__cta-icon {
     width: 3rem;
     height: 3rem;
+    background: $primary;
+    color: #ffffff;
 
     svg {
       width: 1.5rem;
@@ -101,85 +152,79 @@
   }
 
   &__cta-label {
-    font-size: 1.25rem;
+    font-size: 1rem;
     line-height: 1.2;
   }
 
-  &__toggle:hover &__cta,
-  &__toggle:focus-visible &__cta {
-    color: #ffffff;
+  &__cta:hover &__cta-icon svg,
+  &__cta:focus-visible &__cta-icon svg {
+    transform: translateX(3px);
   }
 
-  &.is-open &__cta-icon svg {
-    transform: rotate(90deg);
-  }
+  // ----- Desktop: logos in a left rail, active panel on the right -----
+  @media (min-width: 992px) {
+    display: grid;
+    grid-template-columns: minmax(18rem, 33rem) minmax(0, 1fr);
+    grid-template-rows: repeat(4, auto) 1fr;
+    column-gap: clamp(2rem, 4vw, 5rem);
+    row-gap: 0.5rem;
+    align-items: start;
 
-  &__panel {
-    display: none;
-    height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: height 0.65s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
-  }
-
-  &__body {
-    padding: 0 1.875rem 1.5rem;
-
-    @media (min-width: 1300.98px) {
-      padding-right: 14%;
+    &__item {
+      display: contents;
     }
 
-    p {
-      margin: 0 0 1rem;
-      color: #444b52;
+    &__item + &__item {
+      margin-top: 0;
     }
 
-    p:last-child {
-      margin-bottom: 0;
-    }
-  }
+    &__tab {
+      grid-column: 1;
+      min-height: 6rem;
+      padding: 2rem;
+      border-right: 4px solid transparent;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
 
-  @media (max-width: 991.98px) {
-    margin-top: 0;
-    box-shadow: none;
-
-    &+& {
-      margin-top: 1rem;
-    }
-  }
-
-  @media (max-width: 767.98px) {
-    &__brand img {
-      max-height: 2.25rem;
+      &.is-active {
+        border-right-color: $primary;
+      }
     }
 
-    &__brand--capadev img,
-    &__brand--bon img {
-      max-height: 1.75rem;
+    &__logo img {
+      height: 2rem;
     }
 
-    &__toggle {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 1.25rem;
-      gap: 1rem;
+    &__chevron {
+      display: none;
     }
 
-    &__cta {
-      gap: 0.75rem;
+    &__panel {
+      grid-column: 2;
+      grid-row: 1 / -1;
+      gap: 2.5rem;
+      padding: 0 0 0 clamp(1.5rem, 2vw, 2rem);
+      border-left: 1px solid var(--color-border);
     }
 
-    &__cta-icon {
-      width: 2.625rem;
-      height: 2.625rem;
+    &__body p {
+      margin-bottom: 1.5rem;
+      font-size: clamp(1.125rem, 1.6vw, 2rem);
     }
 
     &__cta-label {
-      font-size: 1rem;
+      font-size: 1.25rem;
     }
+  }
+}
 
-    &__body {
-      padding: 0 1.25rem 1.25rem;
-    }
+@keyframes partner-fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

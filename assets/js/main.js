@@ -1,5 +1,29 @@
 // main.js
 
+// ── Dark-mode toggle ──────────────────────────────────────
+(function () {
+  var STORAGE_KEY = 'eximius-theme';
+  var htmlEl = document.documentElement;
+  var stored = localStorage.getItem(STORAGE_KEY);
+  if (stored === 'dark' || stored === 'light') {
+    htmlEl.setAttribute('data-bs-theme', stored);
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    function updateLabel(theme) {
+      btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+    }
+    updateLabel(htmlEl.getAttribute('data-bs-theme') || 'light');
+    btn.addEventListener('click', function () {
+      var next = htmlEl.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+      htmlEl.setAttribute('data-bs-theme', next);
+      localStorage.setItem(STORAGE_KEY, next);
+      updateLabel(next);
+    });
+  });
+}());
+
 // ── Lenis smooth scroll ────────────────────────────────────
 const lenis = new Lenis({
   duration: 1.3,
@@ -38,6 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const accordionRoots = document.querySelectorAll('[data-accordion]');
   const partnerStack = document.querySelector('[data-partner-stack]');
   const partnerCards = document.querySelectorAll('.partner-card');
+  const partnerTabs = document.querySelector('[data-partner-tabs]');
+  const faqRoot = document.querySelector('[data-faq]');
   const opportunitiesShowcase = document.querySelector('[data-opportunities-showcase]');
   const videoMedia = document.querySelector('.video-showcase__media');
   const aboutImage = document.querySelector('.about-section__image');
@@ -206,7 +232,19 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   if (siteHeader && navToggle) {
-    const navLinks = siteHeader.querySelectorAll('.site-header__link, .site-header__cta');
+    const navLinks = siteHeader.querySelectorAll('.site-header__link, .site-header__sublink, .site-header__cta');
+    const submenuToggles = siteHeader.querySelectorAll('[data-submenu-toggle]');
+
+    submenuToggles.forEach((toggle) => {
+      toggle.addEventListener('click', () => {
+        const parent = toggle.closest('.site-header__item--has-children');
+        if (!parent) {
+          return;
+        }
+        const isOpen = parent.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    });
     const scrollThreshold = 36;
     const hideThreshold = 140;
     let lastScrollY = window.scrollY || 0;
@@ -521,6 +559,72 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         setPartnerState(card, !isOpen);
+      });
+    });
+  }
+
+  if (partnerTabs) {
+    const tabs = Array.from(partnerTabs.querySelectorAll('[data-partner-tab]'));
+    const panels = Array.from(partnerTabs.querySelectorAll('[data-partner-panel]'));
+
+    const activatePartner = (key) => {
+      tabs.forEach((tab) => {
+        const isActive = tab.dataset.partnerTab === key;
+        tab.classList.toggle('is-active', isActive);
+        tab.setAttribute('aria-selected', String(isActive));
+        tab.setAttribute('aria-expanded', String(isActive));
+      });
+
+      panels.forEach((panel) => {
+        const isActive = panel.dataset.partnerPanel === key;
+        panel.classList.toggle('is-active', isActive);
+        panel.hidden = !isActive;
+      });
+    };
+
+    const collapsible = window.matchMedia('(max-width: 991.98px)');
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => {
+        const isActive = tab.classList.contains('is-active');
+        if (isActive && collapsible.matches) {
+          activatePartner(null);
+        } else {
+          activatePartner(tab.dataset.partnerTab);
+        }
+      });
+
+      tab.addEventListener('keydown', (event) => {
+        if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') {
+          return;
+        }
+        event.preventDefault();
+        const dir = event.key === 'ArrowDown' ? 1 : -1;
+        const next = tabs[(index + dir + tabs.length) % tabs.length];
+        next.focus();
+        activatePartner(next.dataset.partnerTab);
+      });
+    });
+  }
+
+  if (faqRoot) {
+    const items = Array.from(faqRoot.querySelectorAll('.faq-item'));
+
+    items.forEach((item) => {
+      const toggle = item.querySelector('.faq-item__toggle');
+
+      toggle?.addEventListener('click', () => {
+        const isOpen = item.classList.contains('is-open');
+
+        items.forEach((other) => {
+          if (other !== item) {
+            other.classList.remove('is-open');
+            other.querySelector('.faq-item__toggle')?.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        item.classList.toggle('is-open', !isOpen);
+        toggle.setAttribute('aria-expanded', String(!isOpen));
       });
     });
   }
