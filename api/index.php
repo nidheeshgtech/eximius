@@ -18,6 +18,18 @@ $routeMap = [
     '/admissions.php' => __DIR__ . '/../admissions.php',
     '/opportunities' => __DIR__ . '/../opportunities.php',
     '/opportunities.php' => __DIR__ . '/../opportunities.php',
+    '/leadership' => __DIR__ . '/../leadership.php',
+    '/leadership.php' => __DIR__ . '/../leadership.php',
+    '/learning-journey' => __DIR__ . '/../learning-journey.php',
+    '/learning-journey.php' => __DIR__ . '/../learning-journey.php',
+    '/learning-partners' => __DIR__ . '/../learning-partners.php',
+    '/learning-partners.php' => __DIR__ . '/../learning-partners.php',
+    '/specialists' => __DIR__ . '/../specialists.php',
+    '/specialists.php' => __DIR__ . '/../specialists.php',
+    '/alumni' => __DIR__ . '/../alumni.php',
+    '/alumni.php' => __DIR__ . '/../alumni.php',
+    '/faq' => __DIR__ . '/../faq.php',
+    '/faq.php' => __DIR__ . '/../faq.php',
 ];
 
 $target = $routeMap[$normalizedPath] ?? __DIR__ . '/../index.php';
